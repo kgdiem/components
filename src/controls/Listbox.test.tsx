@@ -1,0 +1,38 @@
+import { renderToStaticMarkup } from "react-dom/server";
+import { describe, expect, it } from "vitest";
+
+import { Listbox } from "./Listbox";
+
+const OPTIONS = [
+  { value: "draft", label: "Draft" },
+  { value: "review", label: "In Review" },
+  { value: "approved", label: "Approved", disabled: true },
+];
+
+describe("Listbox", () => {
+  it("renders selected option label", () => {
+    const html = renderToStaticMarkup(
+      <Listbox options={OPTIONS} value="review" onChange={() => undefined} />,
+    );
+
+    expect(html).toContain(">In Review</button>");
+    expect(html).toContain('aria-haspopup="listbox"');
+  });
+
+  it("renders placeholder when no option is selected", () => {
+    const html = renderToStaticMarkup(
+      <Listbox options={OPTIONS} placeholder="Choose status" onChange={() => undefined} />,
+    );
+
+    expect(html).toContain(">Choose status</button>");
+  });
+
+  it("renders option list with disabled option attributes", () => {
+    const html = renderToStaticMarkup(
+      <Listbox options={OPTIONS} value="draft" onChange={() => undefined} />,
+    );
+
+    expect(html).toContain(">Draft</button>");
+    expect(html).toContain("focus:ring-focus/25");
+  });
+});
