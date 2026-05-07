@@ -44,7 +44,7 @@ jobs:
         with:
           version: npm run version-packages
           publish: npm run release
-          title: "chore: release kdesign"
+          title: "chore: release @kgdiem/components"
           commit: "chore: version packages"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -88,4 +88,5 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "4"
           command: pages deploy storybook-static --project-name=${{ secrets.CLOUDFLARE_PAGES_PROJECT_NAME }}
