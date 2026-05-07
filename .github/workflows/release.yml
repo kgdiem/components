@@ -30,6 +30,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # Pre-commit runs `npm test`; Vitest Storybook tests use Playwright (chromium headless shell).
+      - name: Install Playwright browsers
+        run: npx playwright install chromium --with-deps
+
       # Trusted Publishing requires npm CLI >= 11.5.1 (Node 22.14+ satisfies runtime minimum).
       - name: Use npm with OIDC Trusted Publishing support
         run: npm install -g npm@^11.5.1
