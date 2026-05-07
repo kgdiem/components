@@ -38,3 +38,21 @@ export default {
 ### Testing
 
 To run the tests, run `npm run test`.
+
+## Releasing
+
+This package uses [Changesets](https://github.com/changesets/changesets).
+
+1. Add a release note file in your PR:
+   ```bash
+   npm run changeset
+   ```
+2. Push your PR. CI enforces a changeset check.
+3. Merge to `main`. GitHub Actions will:
+   - update versions and changelog
+   - create release commit/tag via Changesets
+   - publish to npm
+   - build/upload an npm tarball artifact
+   - deploy Storybook to Cloudflare Pages after publish
+
+Local git hooks (via Husky) run lint/tests on every commit, and block pushes to `main` unless the pushed commits include a `.changeset/*.md` file (excluding `README.md`).

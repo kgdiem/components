@@ -2,6 +2,10 @@
   "name": "kdesign",
   "version": "0.1.0",
   "description": "Minimal React component library",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kgdiem/kdesign.git"
+  },
   "license": "MIT",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -33,7 +37,11 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "prepublishOnly": "npm run build"
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "changeset publish",
+    "prepublishOnly": "npm run build",
+    "prepare": "husky"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.10",
@@ -46,6 +54,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.29.0",
+    "@changesets/cli": "^2.31.0",
     "@chromatic-com/storybook": "^5.1.2",
     "@eslint/js": "^10.0.1",
     "@rolldown/plugin-babel": "^0.2.3",
@@ -54,11 +63,11 @@
     "@storybook/addon-onboarding": "^10.3.6",
     "@storybook/addon-vitest": "^10.3.6",
     "@storybook/react-vite": "^10.3.6",
+    "@tailwindcss/vite": "^4.1.16",
     "@types/babel__core": "^7.20.5",
     "@types/node": "^24.12.2",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "@tailwindcss/vite": "^4.1.16",
     "@vitejs/plugin-react": "^6.0.1",
     "@vitest/browser-playwright": "^4.1.5",
     "@vitest/coverage-v8": "^4.1.5",
@@ -69,6 +78,7 @@
     "eslint-plugin-storybook": "^10.3.6",
     "formik": "^2.4.9",
     "globals": "^17.5.0",
+    "husky": "^9.1.7",
     "playwright": "^1.59.1",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",

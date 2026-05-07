@@ -1,0 +1,28 @@
+#!/usr/bin/env sh
+
+zero=0000000000000000000000000000000000000000
+
+while read -r local_ref local_sha remote_ref remote_sha
+do
+  if [ "$remote_ref" != "refs/heads/main" ]; then
+    continue
+  fi
+  if [ "$local_sha" = "$zero" ]; then
+    continue
+  fi
+
+  if [ "$remote_sha" = "$zero" ]; then
+    range="$local_sha"
+  else
+    if [ "$local_sha" = "$remote_sha" ]; then
+      continue
+    fi
+    range="$remote_sha..$local_sha"
+  fi
+
+  if ! git log --name-only --pretty=format: "$range" | grep -E '^\.changeset/.*\.md$' | grep -Ev '^\.changeset/README\.md$' > /dev/null; then
+    echo "Error: pushes to main must include a changeset file in .changeset/*.md"
+    echo "Run 'npm run changeset', commit, and push again."
+    exit 1
+  fi
+done
