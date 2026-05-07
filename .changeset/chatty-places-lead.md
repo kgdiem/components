@@ -2,4 +2,4 @@
 "kdesign": patch
 ---
 
-Add workflows and changeset
+Add workflows, changeset, update README and add linting
