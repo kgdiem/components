@@ -9,7 +9,7 @@ Built with React, Tailwind CSS, Headless UI, and Storybook.
 ## Installation
 
 ```bash
-npm install kdesign
+npm install @kgdiem/components
 ```
 
 ## Usage
@@ -17,8 +17,8 @@ npm install kdesign
 Import the components and styles into your project.
 
 ```tsx
-import { Button, Input } from "kdesign";
-import "kdesign/styles.css";
+import { Button, Input } from "@kgdiem/components";
+import "@kgdiem/components/styles.css";
 
 <Button>Click me</Button>
 <Input placeholder="Enter your name" />
