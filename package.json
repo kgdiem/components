@@ -23,6 +23,7 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
+    "./styles.css": "./dist/styles.css",
     "./tailwind-config": {
       "import": "./tailwind.preset.js",
       "default": "./tailwind.preset.js"
@@ -32,10 +33,14 @@
     "dist",
     "tailwind.preset.js"
   ],
-  "sideEffects": false,
+  "sideEffects": [
+    "dist/styles.css",
+    "dist/styles.js",
+    "dist/styles.cjs"
+  ],
   "scripts": {
     "dev": "vite",
-    "build": "npm run build:types && npm run build:js",
+    "build": "npm run build:js && npm run build:types",
     "build:types": "tsc -p tsconfig.build.json",
     "build:js": "vite build",
     "lint": "eslint .",

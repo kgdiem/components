@@ -25,17 +25,43 @@ export default defineConfig({
   ],
   build: {
     lib: {
-      entry: path.resolve(dirname, "src/index.ts"),
+      entry: {
+        index: path.resolve(dirname, "src/index.ts"),
+        styles: path.resolve(dirname, "src/styles.ts"),
+      },
       name: "KDesign",
-      formats: ["es", "cjs"],
-      fileName: (format) => (format === "es" ? "index.js" : "index.cjs"),
     },
     rollupOptions: {
       treeshake: true,
-      external: ["react", "react-dom", "formik", "@headlessui/react", "lucide-react"],
-      output: {
-        exports: "named",
-      },
+      external: [
+        /^react(?:\/|$)/,
+        /^react-dom(?:\/|$)/,
+        "formik",
+        "@headlessui/react",
+        "lucide-react",
+      ],
+      output: [
+        {
+          format: "es",
+          exports: "named",
+          dir: path.resolve(dirname, "dist"),
+          preserveModules: true,
+          preserveModulesRoot: path.resolve(dirname, "src"),
+          entryFileNames: "[name].js",
+          chunkFileNames: "[name].js",
+          assetFileNames: "styles[extname]",
+        },
+        {
+          format: "cjs",
+          exports: "named",
+          dir: path.resolve(dirname, "dist"),
+          preserveModules: true,
+          preserveModulesRoot: path.resolve(dirname, "src"),
+          entryFileNames: "[name].cjs",
+          chunkFileNames: "[name].cjs",
+          assetFileNames: "styles[extname]",
+        },
+      ],
     },
   },
   test: {
