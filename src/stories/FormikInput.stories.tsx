@@ -23,7 +23,7 @@ function renderInFormik(args: Story["args"], initialEmail = "user@example.com") 
   return (
     <Formik initialValues={{ email: initialEmail }} onSubmit={() => undefined}>
       <Form>
-        <FormikInput {...args} />
+        <FormikInput {...args} name={args?.name ?? "email"} />
       </Form>
     </Formik>
   );
@@ -40,6 +40,15 @@ export const Empty: Story = {
 export const Disabled: Story = {
   args: {
     disabled: true,
+  },
+  render: (args) => renderInFormik(args),
+};
+
+export const Clearable: Story = {
+  args: {
+    clearable: true,
+    placeholder: "Search by name or description",
+    type: "search",
   },
   render: (args) => renderInFormik(args),
 };

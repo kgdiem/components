@@ -23,4 +23,27 @@ describe("Input", () => {
     expect(html).toContain('name="email"');
     expect(html).toContain('type="email"');
   });
+
+  it("renders a clear button when clearable and the value is non-empty", () => {
+    const html = renderToStaticMarkup(
+      <Input clearable value="query" onChange={() => undefined} />,
+    );
+
+    expect(html).toContain('aria-label="Clear"');
+    expect(html).toContain("pr-9");
+  });
+
+  it("does not render a clear button when clearable and the value is empty", () => {
+    const html = renderToStaticMarkup(
+      <Input clearable value="" onChange={() => undefined} />,
+    );
+
+    expect(html).not.toContain('aria-label="Clear"');
+  });
+
+  it("does not render a clear button when clearable is false", () => {
+    const html = renderToStaticMarkup(<Input value="query" onChange={() => undefined} />);
+
+    expect(html).not.toContain('aria-label="Clear"');
+  });
 });
