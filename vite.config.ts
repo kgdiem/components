@@ -16,6 +16,11 @@ const dirname =
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({
+  resolve: {
+    alias: {
+      "@utils": path.resolve(dirname, "./src/utils"),
+    },
+  },
   plugins: [
     tailwindcss(),
     react(),
