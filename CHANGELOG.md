@@ -1,5 +1,11 @@
 # @kgdiem/components
 
+## 0.2.0
+
+### Minor Changes
+
+- 5a1d7da: Add clearable input
+
 ## 0.1.2
 
 ### Patch Changes
