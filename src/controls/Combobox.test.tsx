@@ -34,6 +34,22 @@ describe("Combobox", () => {
     expect(html).toContain('aria-autocomplete="list"');
   });
 
+  it("forwards id to the combobox input for label association", () => {
+    const html = renderToStaticMarkup(
+      <Combobox id="field-department" options={OPTIONS} value="draft" onChange={() => undefined} />,
+    );
+
+    expect(html).toContain('id="field-department"');
+  });
+
+  it("does not set a default aria-label", () => {
+    const html = renderToStaticMarkup(
+      <Combobox options={OPTIONS} value="draft" onChange={() => undefined} />,
+    );
+
+    expect(html).not.toContain("aria-label=");
+  });
+
   it("renders expected combobox data attributes", () => {
     const html = renderToStaticMarkup(
       <Combobox options={OPTIONS} value="draft" onChange={() => undefined} />,

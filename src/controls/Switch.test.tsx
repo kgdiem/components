@@ -14,6 +14,14 @@ describe("Switch", () => {
     expect(html).toContain("data-[checked]:bg-primary");
   });
 
+  it("forwards id to the switch for label association", () => {
+    const html = renderToStaticMarkup(
+      <Switch id="field-alerts" onChange={() => undefined} />,
+    );
+
+    expect(html).toContain('id="field-alerts"');
+  });
+
   it("renders switch with name and disabled attributes", () => {
     const html = renderToStaticMarkup(
       <Switch disabled label="Read only" name="alerts" onChange={() => undefined} />,

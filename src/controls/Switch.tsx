@@ -1,8 +1,14 @@
 import { Field, Label, Switch as HeadlessSwitch } from "@headlessui/react";
+import type { ButtonHTMLAttributes } from "react";
 
-import { mergeClasses } from "../utils/mergeClasses";
+import { mergeClasses } from "@utils/mergeClasses";
 
-export type SwitchProps = {
+type SwitchAccessibilityProps = Pick<
+  ButtonHTMLAttributes<HTMLButtonElement>,
+  "id" | "aria-label" | "aria-labelledby" | "aria-describedby"
+>;
+
+export type SwitchProps = SwitchAccessibilityProps & {
   checked?: boolean;
   className?: string;
   disabled?: boolean;
@@ -22,9 +28,13 @@ const HANDLE_CLASSES =
 const LABEL_CLASSES = "text-sm text-text";
 
 export function Switch({
+  "aria-describedby": ariaDescribedBy,
+  "aria-label": ariaLabel,
+  "aria-labelledby": ariaLabelledBy,
   checked,
   className,
   disabled,
+  id,
   label,
   name,
   onChange,
@@ -32,9 +42,13 @@ export function Switch({
   return (
     <Field className={mergeClasses(WRAPPER_CLASSES, className)}>
       <HeadlessSwitch
+        aria-describedby={ariaDescribedBy}
+        aria-label={ariaLabel}
+        aria-labelledby={ariaLabelledBy}
         checked={checked}
         className={SWITCH_CLASSES}
         disabled={disabled}
+        id={id}
         name={name}
         onChange={onChange}
       >

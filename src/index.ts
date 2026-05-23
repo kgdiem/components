@@ -42,5 +42,7 @@ export { Header } from "./typography/Header";
 export type { HeaderProps } from "./typography/Header";
 export { Text } from "./typography/Text";
 export type { TextProps } from "./typography/Text";
+export { Label } from "./typography/Label";
+export type { LabelProps } from "./typography/Label";
 
 export { mergeClasses } from "./utils/mergeClasses";

@@ -4,8 +4,14 @@ import {
   Radio,
   RadioGroup as HeadlessRadioGroup,
 } from "@headlessui/react";
+import type { HTMLAttributes } from "react";
 
-import { mergeClasses } from "../utils/mergeClasses";
+import { mergeClasses } from "@utils/mergeClasses";
+
+type RadioGroupAccessibilityProps = Pick<
+  HTMLAttributes<HTMLElement>,
+  "id" | "aria-label" | "aria-describedby"
+>;
 
 export type RadioGroupOption = {
   description?: string;
@@ -14,7 +20,7 @@ export type RadioGroupOption = {
   value: string;
 };
 
-export type RadioGroupProps = {
+export type RadioGroupProps = RadioGroupAccessibilityProps & {
   className?: string;
   disabled?: boolean;
   name?: string;
@@ -37,8 +43,11 @@ const LABEL_CLASSES = "text-sm";
 const DESCRIPTION_CLASSES = "text-xs text-textMuted";
 
 export function RadioGroup({
+  "aria-describedby": ariaDescribedBy,
+  "aria-label": ariaLabel,
   className,
   disabled,
+  id,
   name,
   onChange,
   options,
@@ -46,8 +55,11 @@ export function RadioGroup({
 }: RadioGroupProps) {
   return (
     <HeadlessRadioGroup
+      aria-describedby={ariaDescribedBy}
+      aria-label={ariaLabel}
       className={mergeClasses(GROUP_CLASSES, className)}
       disabled={disabled}
+      id={id}
       name={name}
       value={value}
       onChange={onChange}

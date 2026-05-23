@@ -28,6 +28,21 @@ describe("RadioGroup", () => {
     expect(html).toContain('data-headlessui-state="checked"');
   });
 
+  it("forwards id and aria-label to the radiogroup element", () => {
+    const html = renderToStaticMarkup(
+      <RadioGroup
+        aria-label="Notification method"
+        id="field-notify"
+        options={OPTIONS}
+        value="email"
+        onChange={() => undefined}
+      />,
+    );
+
+    expect(html).toContain('id="field-notify"');
+    expect(html).toContain('aria-label="Notification method"');
+  });
+
   it("renders disabled option attributes", () => {
     const html = renderToStaticMarkup(
       <RadioGroup options={OPTIONS} value="email" onChange={() => undefined} />,
