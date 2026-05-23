@@ -1,5 +1,11 @@
 # @kgdiem/components
 
+## 0.3.0
+
+### Minor Changes
+
+- c525a74: Add label component and pass aria atributes to controls
+
 ## 0.2.0
 
 ### Minor Changes
