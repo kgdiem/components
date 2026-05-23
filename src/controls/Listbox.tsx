@@ -4,8 +4,14 @@ import {
   ListboxOption,
   ListboxOptions,
 } from "@headlessui/react";
+import type { ButtonHTMLAttributes } from "react";
 
-import { mergeClasses } from "../utils/mergeClasses";
+import { mergeClasses } from "@utils/mergeClasses";
+
+type ListboxAccessibilityProps = Pick<
+  ButtonHTMLAttributes<HTMLButtonElement>,
+  "id" | "aria-label" | "aria-labelledby" | "aria-describedby"
+>;
 
 export type ListboxOptionItem = {
   value: string;
@@ -13,7 +19,7 @@ export type ListboxOptionItem = {
   disabled?: boolean;
 };
 
-export type ListboxProps = {
+export type ListboxProps = ListboxAccessibilityProps & {
   className?: string;
   disabled?: boolean;
   name?: string;
@@ -33,8 +39,12 @@ const OPTION_CLASSES =
   "cursor-pointer rounded-sm px-2 py-1.5 text-sm text-text transition-colors duration-100 data-[focus]:bg-surfaceMuted data-[selected]:bg-primarySubtle data-[selected]:text-primary data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50";
 
 export function Listbox({
+  "aria-describedby": ariaDescribedBy,
+  "aria-label": ariaLabel,
+  "aria-labelledby": ariaLabelledBy,
   className,
   disabled,
+  id,
   name,
   onChange,
   options,
@@ -45,7 +55,13 @@ export function Listbox({
 
   return (
     <HeadlessUiListbox disabled={disabled} name={name} value={value} onChange={onChange}>
-      <ListboxButton className={mergeClasses(BUTTON_CLASSES, className)}>
+      <ListboxButton
+        aria-describedby={ariaDescribedBy}
+        aria-label={ariaLabel}
+        aria-labelledby={ariaLabelledBy}
+        className={mergeClasses(BUTTON_CLASSES, className)}
+        id={id}
+      >
         {selectedOption?.label ?? placeholder}
       </ListboxButton>
       <ListboxOptions anchor="bottom start" className={OPTIONS_CLASSES}>

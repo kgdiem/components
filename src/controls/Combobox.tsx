@@ -4,9 +4,15 @@ import {
   ComboboxOption,
   ComboboxOptions,
 } from "@headlessui/react";
+import type { InputHTMLAttributes } from "react";
 import { useMemo, useState } from "react";
 
-import { mergeClasses } from "../utils/mergeClasses";
+import { mergeClasses } from "@utils/mergeClasses";
+
+type ComboboxAccessibilityProps = Pick<
+  InputHTMLAttributes<HTMLInputElement>,
+  "id" | "aria-label" | "aria-labelledby" | "aria-describedby"
+>;
 
 export type ComboboxOptionItem = {
   value: string;
@@ -14,7 +20,7 @@ export type ComboboxOptionItem = {
   disabled?: boolean;
 };
 
-export type ComboboxProps = {
+export type ComboboxProps = ComboboxAccessibilityProps & {
   className?: string;
   disabled?: boolean;
   name?: string;
@@ -34,8 +40,12 @@ const OPTION_CLASSES =
   "cursor-pointer rounded-sm px-2 py-1.5 text-sm text-text transition-colors duration-100 data-[focus]:bg-surfaceMuted data-[selected]:bg-primarySubtle data-[selected]:text-primary data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50";
 
 export function Combobox({
+  "aria-describedby": ariaDescribedBy,
+  "aria-label": ariaLabel,
+  "aria-labelledby": ariaLabelledBy,
   className,
   disabled,
+  id,
   name,
   onChange,
   options,
@@ -63,8 +73,11 @@ export function Combobox({
       onClose={() => setQuery("")}
     >
       <ComboboxInput
-        aria-label={name ?? "Combobox"}
+        aria-describedby={ariaDescribedBy}
+        aria-label={ariaLabel}
+        aria-labelledby={ariaLabelledBy}
         className={mergeClasses(INPUT_CLASSES, className)}
+        id={id}
         displayValue={(selectedValue: string) =>
           options.find((option) => option.value === selectedValue)?.label ?? ""
         }

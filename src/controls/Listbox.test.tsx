@@ -27,6 +27,14 @@ describe("Listbox", () => {
     expect(html).toContain(">Choose status</button>");
   });
 
+  it("forwards id to the listbox button for label association", () => {
+    const html = renderToStaticMarkup(
+      <Listbox id="field-status" options={OPTIONS} value="draft" onChange={() => undefined} />,
+    );
+
+    expect(html).toContain('id="field-status"');
+  });
+
   it("renders option list with disabled option attributes", () => {
     const html = renderToStaticMarkup(
       <Listbox options={OPTIONS} value="draft" onChange={() => undefined} />,
