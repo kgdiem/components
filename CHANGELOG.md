@@ -1,5 +1,11 @@
 # @kgdiem/components
 
+## 0.4.0
+
+### Minor Changes
+
+- 60f8e2f: Add tab and sidebar components
+
 ## 0.3.0
 
 ### Minor Changes
