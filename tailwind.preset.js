@@ -35,6 +35,8 @@ const kdesignTailwindPreset = {
         infoSubtle: "rgb(239 246 255 / <alpha-value>)",
 
         focus: "rgb(8 145 178 / <alpha-value>)",
+
+        brand: "rgb(67 56 202 / <alpha-value>)",
       },
     },
   },

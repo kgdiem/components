@@ -45,4 +45,16 @@ export type { TextProps } from "./typography/Text";
 export { Label } from "./typography/Label";
 export type { LabelProps } from "./typography/Label";
 
+export {
+  Sidebar,
+  SidebarFooter,
+  SidebarHeader,
+  SidebarItem,
+  SidebarNav,
+  SidebarSection,
+} from "./navigation/Sidebar";
+
+export { Tab, Tabs } from "./navigation/Tabs";
+export type { TabProps, TabsProps } from "./navigation/Tabs";
+
 export { mergeClasses } from "./utils/mergeClasses";
