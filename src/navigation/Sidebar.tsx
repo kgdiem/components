@@ -93,15 +93,13 @@ type SidebarItemProps<T extends ElementType = typeof Box> = {
   className?: string;
 } & Omit<ComponentPropsWithoutRef<T>, "as" | "children" | "className">;
 
-export const SidebarItem = forwardRef(function SidebarItem<T extends ElementType = typeof Box>(
-  { active = false, as, children, className, ...props }: SidebarItemProps<T>,
-  ref: ComponentPropsWithRef<T>["ref"],
-) {
+export const SidebarItem = forwardRef<HTMLDivElement, SidebarItemProps<typeof Box>>(
+  function SidebarItem({ active = false, as, children, className, ...props }, ref) {
   const Component = (as ?? Box) as ElementType;
 
   return (
     <Component
-      ref={ref}
+      ref={ref as ComponentPropsWithRef<typeof Component>["ref"]}
       className={mergeClasses(
         SIDEBAR_ITEM_BASE_CLASSES,
         active ? SIDEBAR_ITEM_ACTIVE_CLASSES : SIDEBAR_ITEM_INACTIVE_CLASSES,
@@ -112,7 +110,8 @@ export const SidebarItem = forwardRef(function SidebarItem<T extends ElementType
       {children}
     </Component>
   );
-}) as <T extends ElementType = typeof Box>(
+  },
+) as <T extends ElementType = typeof Box>(
   props: SidebarItemProps<T> & { ref?: ComponentPropsWithRef<T>["ref"] },
 ) => ReactElement | null;
 
