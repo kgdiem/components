@@ -51,6 +51,7 @@
     "build:types": "tsc -p tsconfig.build.json",
     "build:js": "vite build",
     "lint": "eslint .",
+    "pretest": "npm run build:js",
     "test": "vitest run",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
