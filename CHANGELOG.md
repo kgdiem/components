@@ -1,5 +1,11 @@
 # @kgdiem/components
 
+## 0.5.0
+
+### Minor Changes
+
+- 1c138ca: Add runtime and build-time theme token overrides via CSS variables and `createComponentsPreset()`.
+
 ## 0.4.0
 
 ### Minor Changes
