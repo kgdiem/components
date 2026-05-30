@@ -58,3 +58,16 @@ export { Tab, Tabs } from "./navigation/Tabs";
 export type { TabProps, TabsProps } from "./navigation/Tabs";
 
 export { mergeClasses } from "./utils/mergeClasses";
+
+export {
+  COMPONENTS_COLOR_TOKENS,
+  createComponentsPreset,
+  componentsColorVar,
+  componentsTailwindColor,
+  componentsTailwindPreset,
+} from "./tokens/colors";
+export type {
+  ComponentsColorOverrides,
+  ComponentsColorToken,
+  ComponentsPresetOptions,
+} from "./tokens/colors";

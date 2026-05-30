@@ -34,7 +34,7 @@ export default defineConfig({
         index: path.resolve(dirname, "src/index.ts"),
         styles: path.resolve(dirname, "src/styles.ts"),
       },
-      name: "KDesign",
+      name: "Components",
     },
     rollupOptions: {
       treeshake: true,

@@ -19,21 +19,33 @@ To build the publishable library output in `dist/`, run `npm run build`.
 The package is published with ESM/CJS entry points and named exports, so consumers can import only what they use:
 
 ```ts
-import { Button, Input } from "kdesign";
+import { Button, Input } from "@kgdiem/components";
 ```
 
 ### Tailwind Extension
 
-To extend your Tailwind config with the design tokens:
+Semantic color tokens ship as a Tailwind preset and as CSS theme variables.
+
+**Runtime overrides** — set `--components-color-*` variables after importing styles (see README *Theming*).
+
+**Build-time overrides** — merge token values into the preset:
 
 ```js
-import kdesignTailwindPreset from "kdesign/tailwind-config";
+import { createComponentsPreset } from "@kgdiem/components/tailwind-config";
 
 export default {
-  presets: [kdesignTailwindPreset],
+  presets: [
+    createComponentsPreset({
+      colors: {
+        primary: "100 80 200",
+      },
+    }),
+  ],
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
 };
 ```
+
+The default preset (`componentsTailwindPreset`) references CSS variables so runtime and build-time overrides can be combined.
 
 ### Testing
 

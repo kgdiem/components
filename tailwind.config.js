@@ -1,3 +1,3 @@
-import kdesignTailwindPreset from "./tailwind.preset.js";
+import componentsTailwindPreset from "./tailwind.preset.js";
 
-export default kdesignTailwindPreset;
+export default componentsTailwindPreset;

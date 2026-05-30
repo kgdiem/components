@@ -1,0 +1,89 @@
+/*
+ * Components theme tokens.
+ *
+ * Override at runtime by setting --components-color-* variables on :root (or a
+ * scoped ancestor) after importing @kgdiem/components/styles.css or theme.css.
+ *
+ * Example:
+ *   :root {
+ *     --components-color-primary: rgb(100 80 200);
+ *     --components-color-brand: rgb(67 56 202);
+ *   }
+ */
+@layer base {
+  :root {
+    --components-color-bg: rgb(248 250 252);
+    --components-color-surface: rgb(255 255 255);
+    --components-color-surfaceRaised: rgb(255 255 255);
+    --components-color-surfaceMuted: rgb(241 245 249);
+
+    --components-color-text: rgb(15 23 42);
+    --components-color-textMuted: rgb(71 85 105);
+    --components-color-textSubtle: rgb(100 116 139);
+    --components-color-textInverse: rgb(255 255 255);
+
+    --components-color-border: rgb(203 213 225);
+    --components-color-borderSubtle: rgb(226 232 240);
+    --components-color-borderStrong: rgb(148 163 184);
+
+    --components-color-primary: rgb(15 118 150);
+    --components-color-primaryHover: rgb(14 100 130);
+    --components-color-primaryActive: rgb(12 74 110);
+    --components-color-primarySubtle: rgb(236 254 255);
+    --components-color-primaryMuted: rgb(165 243 252);
+
+    --components-color-success: rgb(21 128 61);
+    --components-color-successSubtle: rgb(240 253 244);
+
+    --components-color-warning: rgb(180 83 9);
+    --components-color-warningSubtle: rgb(255 251 235);
+
+    --components-color-danger: rgb(185 28 28);
+    --components-color-dangerSubtle: rgb(254 242 242);
+
+    --components-color-info: rgb(37 99 235);
+    --components-color-infoSubtle: rgb(239 246 255);
+
+    --components-color-focus: rgb(8 145 178);
+
+    --components-color-brand: rgb(67 56 202);
+  }
+}
+
+@theme inline {
+  --color-bg: var(--components-color-bg);
+  --color-surface: var(--components-color-surface);
+  --color-surfaceRaised: var(--components-color-surfaceRaised);
+  --color-surfaceMuted: var(--components-color-surfaceMuted);
+
+  --color-text: var(--components-color-text);
+  --color-textMuted: var(--components-color-textMuted);
+  --color-textSubtle: var(--components-color-textSubtle);
+  --color-textInverse: var(--components-color-textInverse);
+
+  --color-border: var(--components-color-border);
+  --color-borderSubtle: var(--components-color-borderSubtle);
+  --color-borderStrong: var(--components-color-borderStrong);
+
+  --color-primary: var(--components-color-primary);
+  --color-primaryHover: var(--components-color-primaryHover);
+  --color-primaryActive: var(--components-color-primaryActive);
+  --color-primarySubtle: var(--components-color-primarySubtle);
+  --color-primaryMuted: var(--components-color-primaryMuted);
+
+  --color-success: var(--components-color-success);
+  --color-successSubtle: var(--components-color-successSubtle);
+
+  --color-warning: var(--components-color-warning);
+  --color-warningSubtle: var(--components-color-warningSubtle);
+
+  --color-danger: var(--components-color-danger);
+  --color-dangerSubtle: var(--components-color-dangerSubtle);
+
+  --color-info: var(--components-color-info);
+  --color-infoSubtle: var(--components-color-infoSubtle);
+
+  --color-focus: var(--components-color-focus);
+
+  --color-brand: var(--components-color-brand);
+}
