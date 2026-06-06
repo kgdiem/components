@@ -1,5 +1,11 @@
 # @kgdiem/components
 
+## 0.9.0
+
+### Minor Changes
+
+- 65ba8e8: Add PasswordInput, FileUpload, and Dropzone controls with Formik bindings for password entry and single or multiple file selection.
+
 ## 0.8.0
 
 ### Minor Changes
