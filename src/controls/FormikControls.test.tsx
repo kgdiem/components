@@ -3,8 +3,11 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 
 import { FormikCombobox } from "./FormikCombobox";
+import { FormikDropzone } from "./FormikDropzone";
+import { FormikFileUpload } from "./FormikFileUpload";
 import { FormikInput } from "./FormikInput";
 import { FormikListbox } from "./FormikListbox";
+import { FormikPasswordInput } from "./FormikPasswordInput";
 import { FormikRadioGroup } from "./FormikRadioGroup";
 import { FormikSelect } from "./FormikSelect";
 import { FormikSwitch } from "./FormikSwitch";
@@ -84,5 +87,30 @@ describe("Formik controls", () => {
     expect(html).toContain(">Option B<");
     expect(html).toContain('name="comboboxChoice" value="c"');
     expect(html).toContain('value="d"');
+  });
+
+  it("binds password and file controls to form fields", () => {
+    const html = renderToStaticMarkup(
+      <Formik
+        initialValues={{
+          password: "secret",
+          attachment: null,
+          uploads: [],
+        }}
+        onSubmit={() => undefined}
+      >
+        <Form>
+          <FormikPasswordInput name="password" />
+          <FormikFileUpload name="attachment" />
+          <FormikDropzone multiple name="uploads" />
+        </Form>
+      </Formik>,
+    );
+
+    expect(html).toContain('name="password"');
+    expect(html).toContain('type="password"');
+    expect(html).toContain('name="attachment"');
+    expect(html).toContain('name="uploads"');
+    expect(html).toContain("multiple");
   });
 });

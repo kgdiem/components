@@ -63,6 +63,8 @@ export type {
 
 export { Input } from "./controls/Input";
 export type { InputProps } from "./controls/Input";
+export { PasswordInput } from "./controls/PasswordInput";
+export type { PasswordInputProps } from "./controls/PasswordInput";
 export { Textarea } from "./controls/Textarea";
 export type { TextareaProps } from "./controls/Textarea";
 export { Select } from "./controls/Select";
@@ -75,8 +77,14 @@ export { Listbox } from "./controls/Listbox";
 export type { ListboxOptionItem, ListboxProps } from "./controls/Listbox";
 export { Combobox } from "./controls/Combobox";
 export type { ComboboxOptionItem, ComboboxProps } from "./controls/Combobox";
+export { FileUpload } from "./controls/FileUpload";
+export type { FileUploadProps } from "./controls/FileUpload";
+export { Dropzone } from "./controls/Dropzone";
+export type { DropzoneProps } from "./controls/Dropzone";
 export { FormikInput } from "./controls/FormikInput";
 export type { FormikInputProps } from "./controls/FormikInput";
+export { FormikPasswordInput } from "./controls/FormikPasswordInput";
+export type { FormikPasswordInputProps } from "./controls/FormikPasswordInput";
 export { FormikTextarea } from "./controls/FormikTextarea";
 export type { FormikTextareaProps } from "./controls/FormikTextarea";
 export { FormikSelect } from "./controls/FormikSelect";
@@ -89,6 +97,10 @@ export { FormikListbox } from "./controls/FormikListbox";
 export type { FormikListboxProps } from "./controls/FormikListbox";
 export { FormikCombobox } from "./controls/FormikCombobox";
 export type { FormikComboboxProps } from "./controls/FormikCombobox";
+export { FormikFileUpload } from "./controls/FormikFileUpload";
+export type { FormikFileUploadProps } from "./controls/FormikFileUpload";
+export { FormikDropzone } from "./controls/FormikDropzone";
+export type { FormikDropzoneProps } from "./controls/FormikDropzone";
 
 export { Box } from "./structures/Box";
 export type { BoxProps } from "./structures/Box";

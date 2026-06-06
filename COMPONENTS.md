@@ -13,19 +13,25 @@ These Markdown files are the canonical long-form docs for each Storybook-backed 
 ## Controls
 
 - [Input](src/controls/Input.md)
+- [PasswordInput](src/controls/PasswordInput.md)
 - [Textarea](src/controls/Textarea.md)
 - [Select](src/controls/Select.md)
 - [Switch](src/controls/Switch.md)
 - [RadioGroup](src/controls/RadioGroup.md)
 - [Listbox](src/controls/Listbox.md)
 - [Combobox](src/controls/Combobox.md)
+- [FileUpload](src/controls/FileUpload.md)
+- [Dropzone](src/controls/Dropzone.md)
 - [FormikInput](src/controls/FormikInput.md)
+- [FormikPasswordInput](src/controls/FormikPasswordInput.md)
 - [FormikTextarea](src/controls/FormikTextarea.md)
 - [FormikSelect](src/controls/FormikSelect.md)
 - [FormikSwitch](src/controls/FormikSwitch.md)
 - [FormikRadioGroup](src/controls/FormikRadioGroup.md)
 - [FormikListbox](src/controls/FormikListbox.md)
 - [FormikCombobox](src/controls/FormikCombobox.md)
+- [FormikFileUpload](src/controls/FormikFileUpload.md)
+- [FormikDropzone](src/controls/FormikDropzone.md)
 
 ## Structures
 

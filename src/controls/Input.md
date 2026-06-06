@@ -37,4 +37,5 @@ import { Input } from "@kgdiem/components";
 
 - [Textarea](./Textarea.md)
 - [Combobox](./Combobox.md)
+- [PasswordInput](./PasswordInput.md)
 - [FormikInput](./FormikInput.md)
