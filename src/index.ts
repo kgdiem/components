@@ -27,6 +27,40 @@ export type {
   SimpleDialogProps,
 } from "./components/Dialog";
 
+export {
+  Notification,
+  NotificationActions,
+  NotificationBody,
+  NotificationClose,
+  NotificationContent,
+  NotificationDescription,
+  NotificationIcon,
+  NotificationList,
+  NotificationPanel,
+  NotificationProvider,
+  NotificationRegion,
+  NotificationTitle,
+  NotificationViewport,
+  SimpleNotification,
+  useNotification,
+} from "./components/Notification";
+export type {
+  NotificationAPI,
+  NotificationCloseProps,
+  NotificationIconVariant,
+  NotificationLifetime,
+  NotificationPanelProps,
+  NotificationPlacement,
+  NotificationPosition,
+  NotificationPriority,
+  NotificationProps,
+  NotificationProviderProps,
+  NotificationRegionProps,
+  NotifyOptions,
+  ReduceMotionPreference,
+  SimpleNotificationProps,
+} from "./components/Notification";
+
 export { Input } from "./controls/Input";
 export type { InputProps } from "./controls/Input";
 export { Textarea } from "./controls/Textarea";
