@@ -1,13 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Form, Formik } from "formik";
 
+import componentDocs from "../controls/FormikSwitch.md?raw";
 import { FormikSwitch } from "../controls/FormikSwitch";
 import "../index.css";
+import { withComponentDocs } from "./storyDocs";
 
 const meta = {
   title: "Controls/Formik/Switch",
   component: FormikSwitch,
   tags: ["autodocs"],
+  parameters: withComponentDocs(componentDocs),
   args: {
     name: "enabled",
     label: "Enable notifications",

@@ -1,12 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
+import componentDocs from "../typography/Header.md?raw";
 import "../index.css";
 import { Header } from "../typography/Header";
+import { withComponentDocs } from "./storyDocs";
 
 const meta = {
   title: "Typography/Header",
   component: Header,
   tags: ["autodocs"],
+  parameters: withComponentDocs(componentDocs),
   args: {
     children: "Section heading",
     as: "h2",

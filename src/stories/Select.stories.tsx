@@ -1,8 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
 
+import componentDocs from "../controls/Select.md?raw";
 import "../index.css";
 import { Select } from "../controls/Select";
+import { withComponentDocs } from "./storyDocs";
 
 const options = [
   { value: "draft", label: "Draft" },
@@ -15,6 +17,7 @@ const meta = {
   title: "Controls/Select",
   component: Select,
   tags: ["autodocs"],
+  parameters: withComponentDocs(componentDocs),
   args: {
     options,
     placeholder: "Choose status",

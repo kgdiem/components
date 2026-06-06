@@ -1,13 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
+import componentDocs from "../structures/Page.md?raw";
 import "../index.css";
 import { Page } from "../structures/Page";
 import { Text } from "../typography/Text";
+import { withComponentDocs } from "./storyDocs";
 
 const meta = {
   title: "Structures/Page",
   component: Page,
   tags: ["autodocs"],
+  parameters: withComponentDocs(componentDocs),
   args: {
     className: "py-8",
     children: (

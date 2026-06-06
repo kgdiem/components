@@ -1,12 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
+import componentDocs from "../controls/Textarea.md?raw";
 import "../index.css";
 import { Textarea } from "../controls/Textarea";
+import { withComponentDocs } from "./storyDocs";
 
 const meta = {
   title: "Controls/Textarea",
   component: Textarea,
   tags: ["autodocs"],
+  parameters: withComponentDocs(componentDocs),
   args: {
     placeholder: "Write your message",
     rows: 4,

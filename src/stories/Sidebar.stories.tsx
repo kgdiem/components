@@ -9,9 +9,11 @@ import {
 } from "lucide-react";
 import type { ReactNode } from "react";
 
+import componentDocs from "../navigation/Sidebar.md?raw";
 import "../index.css";
 import { Box } from "../structures/Box";
 import { Horizontal } from "../structures/Horizontal";
+import { withComponentDocs } from "./storyDocs";
 import {
   Sidebar,
   SidebarFooter,
@@ -54,6 +56,7 @@ const meta = {
   title: "Navigation/Sidebar",
   component: Sidebar,
   tags: ["autodocs"],
+  parameters: withComponentDocs(componentDocs),
   decorators: [
     (Story) => (
       <SidebarStoryFrame>

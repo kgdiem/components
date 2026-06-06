@@ -1,8 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Form, Formik } from "formik";
 
+import componentDocs from "../controls/FormikCombobox.md?raw";
 import { FormikCombobox } from "../controls/FormikCombobox";
 import "../index.css";
+import { withComponentDocs } from "./storyDocs";
 
 const options = [
   { value: "draft", label: "Draft" },
@@ -15,6 +17,7 @@ const meta = {
   title: "Controls/Formik/Combobox",
   component: FormikCombobox,
   tags: ["autodocs"],
+  parameters: withComponentDocs(componentDocs),
   args: {
     name: "status",
     options,

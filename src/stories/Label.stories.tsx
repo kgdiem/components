@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
 
+import componentDocs from "../typography/Label.md?raw";
 import "../index.css";
 import { Combobox } from "../controls/Combobox";
 import { Input } from "../controls/Input";
@@ -10,6 +11,7 @@ import { Switch } from "../controls/Switch";
 import { Textarea } from "../controls/Textarea";
 import { Vertical } from "../structures/Vertical";
 import { Label } from "../typography/Label";
+import { withComponentDocs } from "./storyDocs";
 
 const selectOptions = [
   { value: "draft", label: "Draft" },
@@ -27,6 +29,7 @@ const meta = {
   title: "Typography/Label",
   component: Label,
   tags: ["autodocs"],
+  parameters: withComponentDocs(componentDocs),
   args: {
     children: "Field label",
   },

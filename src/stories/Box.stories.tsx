@@ -1,13 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
+import componentDocs from "../structures/Box.md?raw";
 import "../index.css";
 import { Box } from "../structures/Box";
 import { Text } from "../typography/Text";
+import { withComponentDocs } from "./storyDocs";
 
 const meta = {
   title: "Structures/Box",
   component: Box,
   tags: ["autodocs"],
+  parameters: withComponentDocs(componentDocs),
   args: {
     className: "rounded-md border border-border p-4",
     children: <Text>Box content</Text>,

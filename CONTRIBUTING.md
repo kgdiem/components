@@ -51,6 +51,15 @@ The default preset (`componentsTailwindPreset`) references CSS variables so runt
 
 To run the tests, run `npm run test`.
 
+### Component Documentation
+
+Public components are documented in two places that must stay aligned:
+
+1. A Storybook story in `src/stories`
+2. A co-located Markdown doc beside the component source, linked from `COMPONENTS.md`
+
+When you add a new public component, add both the story and the Markdown doc. When you change component behavior, update the story and the corresponding Markdown doc in the same PR.
+
 ## Releasing
 
 This package uses [Changesets](https://github.com/changesets/changesets).

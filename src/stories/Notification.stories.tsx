@@ -2,9 +2,11 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { AlertTriangle, Check, Inbox } from "lucide-react";
 import { useState, type ReactNode } from "react";
 
+import componentDocs from "../components/Notification.md?raw";
 import "../index.css";
 import { Button } from "../components/Button";
 import { Box } from "../structures/Box";
+import { withComponentDocs } from "./storyDocs";
 import {
   Notification,
   NotificationActions,
@@ -20,16 +22,6 @@ import {
   useNotification,
   type NotificationPosition,
 } from "../components/Notification";
-
-const usageSnippet = `
-<NotificationProvider defaultDuration={5000}>
-  <App />
-  <NotificationRegion />
-</NotificationProvider>
-
-const { notify } = useNotification();
-notify({ title: "Saved", description: "Your changes were stored." });
-`.trim();
 
 function NotificationStoryShell({
   children,
@@ -319,14 +311,9 @@ const meta = {
   title: "Components/Notification",
   component: QuickStartStory,
   tags: ["autodocs"],
-  parameters: {
-    docs: {
-      description: {
-        component: `Mount \`NotificationProvider\` once, place \`NotificationRegion\` at the app root (sibling to page content), then call \`notify()\` from anywhere via \`useNotification()\`.\n\nUse \`panelClassName\` to style the outer surface and \`className\` to style the inner content row on \`Notification\` and \`SimpleNotification\`.\n\n\`\`\`tsx\n${usageSnippet}\n\`\`\``,
-      },
-    },
+  parameters: withComponentDocs(componentDocs, {
     layout: "padded",
-  },
+  }),
   decorators: [
     (Story) => (
       <NotificationProvider defaultDuration={5000}>

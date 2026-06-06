@@ -1,13 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
+import componentDocs from "../structures/StackedList.md?raw";
 import "../index.css";
 import { StackedList, StackedListItem } from "../structures/StackedList";
 import { Text } from "../typography/Text";
+import { withComponentDocs } from "./storyDocs";
 
 const meta = {
   title: "Structures/StackedList",
   component: StackedList,
   tags: ["autodocs"],
+  parameters: withComponentDocs(componentDocs),
   args: {
     className: "rounded-md border border-border px-4",
   },

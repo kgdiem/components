@@ -10,9 +10,11 @@ import {
   type ReactNode,
 } from "react";
 
+import componentDocs from "../components/Dialog.md?raw";
 import "../index.css";
 import { Button } from "../components/Button";
 import { Box } from "../structures/Box";
+import { withComponentDocs } from "./storyDocs";
 import {
   Dialog,
   DialogBody,
@@ -79,9 +81,9 @@ const meta = {
   title: "Components/Dialog",
   component: SimpleDialogStory,
   tags: ["autodocs"],
-  parameters: {
+  parameters: withComponentDocs(componentDocs, {
     layout: "centered",
-  },
+  }),
   args: {
     triggerLabel: "View export status",
     title: "Report exported",
