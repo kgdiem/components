@@ -88,7 +88,9 @@ describe("prebuilt styles.css", () => {
 
     expect(css).not.toContain("<alpha-value>");
     expect(css).toMatch(/--components-color-primary:(?:#0f7696|rgb\(15 118 150\))/);
-    expect(css).toMatch(/\.bg-primary\{[^}]*var\(--components-color-primary\)/);
+    expect(css).toMatch(
+      /\.bg-primary[^{]*\{[^}]*var\(--components-color-primary\)/,
+    );
     expect(css).toMatch(
       /focus\\:ring-focus\\\/25:focus\{--tw-ring-color:color-mix\(in oklab, var\(--components-color-focus\) 25%, transparent\)/,
     );

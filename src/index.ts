@@ -1,5 +1,32 @@
 export { Button } from "./components/Button";
 
+export {
+  Dialog,
+  DialogBackdrop,
+  DialogBody,
+  DialogContainer,
+  DialogDescription,
+  DialogFooter,
+  DialogIcon,
+  DialogPanel,
+  DialogRoot,
+  DialogTitle,
+  SimpleDialog,
+} from "./components/Dialog";
+export type {
+  DialogBackdropProps,
+  DialogDescriptionProps,
+  DialogFooterLayout,
+  DialogIconVariant,
+  DialogPanelProps,
+  DialogProps,
+  DialogRootProps,
+  DialogSize,
+  DialogTitleElement,
+  DialogTitleProps,
+  SimpleDialogProps,
+} from "./components/Dialog";
+
 export { Input } from "./controls/Input";
 export type { InputProps } from "./controls/Input";
 export { Textarea } from "./controls/Textarea";
