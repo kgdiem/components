@@ -192,6 +192,8 @@ describe("NotificationProvider and NotificationRegion", () => {
   });
 
   it("dismisses a notification by id", () => {
+    vi.useFakeTimers();
+
     function DismissExample() {
       const { dismiss, notify } = useNotification();
 
@@ -210,8 +212,13 @@ describe("NotificationProvider and NotificationRegion", () => {
       </NotificationProvider>,
     );
 
+    act(() => {
+      vi.runAllTimers();
+    });
+
     expect(result.html).not.toContain("Dismiss me");
     result.cleanup();
+    vi.useRealTimers();
   });
 
   it("dismisses all notifications in a region", () => {
@@ -259,6 +266,39 @@ function MultiNotifyTrigger() {
   useEffect(() => {
     notify({ title: "First" });
     notify({ title: "Second" });
+  }, [notify]);
+
+  return null;
+}
+
+function MixedPriorityTrigger() {
+  const { notify } = useNotification();
+
+  useEffect(() => {
+    notify({ title: "First polite", priority: "polite" });
+    notify({ title: "Assertive alert", priority: "assertive" });
+    notify({ title: "Second polite", priority: "polite" });
+  }, [notify]);
+
+  return null;
+}
+
+function UpdateNotificationTrigger() {
+  const { notify } = useNotification();
+
+  useEffect(() => {
+    notify({
+      id: "sync-status",
+      title: "Uploading",
+      description: "Starting transfer",
+      duration: false,
+    });
+    notify({
+      id: "sync-status",
+      title: "Upload complete",
+      description: "Transfer finished",
+      duration: false,
+    });
   }, [notify]);
 
   return null;
@@ -371,20 +411,42 @@ describe("Notification accessibility", () => {
     document.body.innerHTML = "";
   });
 
-  it("renders polite and assertive live region lanes", () => {
+  it("announces each notification independently", () => {
     const result = renderNotification(
       <NotificationProvider defaultDuration={false}>
         <NotifyTrigger options={{ title: "Routine update", priority: "polite" }} />
-        <NotifyTrigger options={{ title: "Critical alert", priority: "assertive" }} />
+        <NotifyTrigger options={{ title: "Background sync complete", priority: "polite" }} />
         <NotificationRegion />
       </NotificationProvider>,
     );
 
-    expect(result.html).toContain('aria-live="polite"');
-    expect(result.html).toContain('aria-live="assertive"');
-    expect(result.html).toContain('aria-atomic="true"');
+    const politeAnnouncements = result.container.querySelectorAll('[aria-live="polite"]');
+
+    expect(politeAnnouncements).toHaveLength(2);
+    politeAnnouncements.forEach((announcement) => {
+      expect(announcement.getAttribute("aria-atomic")).toBe("true");
+    });
     expect(result.html).toContain("Routine update");
-    expect(result.html).toContain("Critical alert");
+    expect(result.html).toContain("Background sync complete");
+    result.cleanup();
+  });
+
+  it("preserves insertion order when polite and assertive notifications are mixed", () => {
+    const result = renderNotification(
+      <NotificationProvider defaultDuration={false}>
+        <MixedPriorityTrigger />
+        <NotificationRegion />
+      </NotificationProvider>,
+    );
+
+    const titles = Array.from(
+      result.container.querySelectorAll("[data-notification-panel]"),
+    ).map((panel) => panel.textContent?.trim());
+
+    expect(titles).toHaveLength(3);
+    expect(titles[0]).toMatch(/^First polite/);
+    expect(titles[1]).toMatch(/^Assertive alert/);
+    expect(titles[2]).toMatch(/^Second polite/);
     result.cleanup();
   });
 
@@ -445,6 +507,23 @@ describe("Notification primitives", () => {
     result.cleanup();
   });
 
+  it("keeps panel and content class hooks separate", () => {
+    const result = renderNotification(
+      <Notification show className="content-hook" panelClassName="panel-hook">
+        Panel content
+      </Notification>,
+    );
+
+    const panel = result.container.querySelector("[data-notification-panel]") as HTMLElement;
+    const content = panel.firstElementChild as HTMLElement;
+
+    expect(panel.className).toContain("panel-hook");
+    expect(panel.className).not.toContain("content-hook");
+    expect(content.className).toContain("content-hook");
+    expect(content.className).not.toContain("panel-hook");
+    result.cleanup();
+  });
+
   it("merges custom panel className values on NotificationPanel", () => {
     const result = renderNotification(
       <NotificationPanel show className="border border-border">
@@ -453,6 +532,23 @@ describe("Notification primitives", () => {
     );
 
     expect(result.html).toContain("border border-border");
+    result.cleanup();
+  });
+
+  it("updates an existing notification when the same id is reused", () => {
+    const result = renderNotification(
+      <NotificationProvider defaultDuration={false}>
+        <UpdateNotificationTrigger />
+        <NotificationRegion />
+      </NotificationProvider>,
+    );
+
+    const panels = result.container.querySelectorAll("[data-notification-panel]");
+
+    expect(panels).toHaveLength(1);
+    expect(result.html).not.toContain("Uploading");
+    expect(result.html).toContain("Upload complete");
+    expect(result.html).toContain("Transfer finished");
     result.cleanup();
   });
 });

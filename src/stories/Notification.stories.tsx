@@ -322,7 +322,7 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: `Mount \`NotificationProvider\` once, place \`NotificationRegion\` at the app root (sibling to page content), then call \`notify()\` from anywhere via \`useNotification()\`.\n\n\`\`\`tsx\n${usageSnippet}\n\`\`\``,
+        component: `Mount \`NotificationProvider\` once, place \`NotificationRegion\` at the app root (sibling to page content), then call \`notify()\` from anywhere via \`useNotification()\`.\n\nUse \`panelClassName\` to style the outer surface and \`className\` to style the inner content row on \`Notification\` and \`SimpleNotification\`.\n\n\`\`\`tsx\n${usageSnippet}\n\`\`\``,
       },
     },
     layout: "padded",

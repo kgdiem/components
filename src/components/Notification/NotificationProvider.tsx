@@ -23,6 +23,7 @@ export function NotificationProvider({
   const notificationsRef = useRef<NotificationRecord[]>([]);
   const registeredRegionsRef = useRef(new Set<string>());
   const timersRef = useRef(new Map<string, TimerState>());
+  const removalTimersRef = useRef(new Map<string, ReturnType<typeof setTimeout>>());
   const dismissRef = useRef<(id: string) => void>(() => undefined);
 
   useEffect(() => {
@@ -49,39 +50,77 @@ export function NotificationProvider({
     timersRef.current.delete(id);
   }, []);
 
+  const clearRemovalTimer = useCallback((id: string) => {
+    const removalTimer = removalTimersRef.current.get(id);
+    if (removalTimer) {
+      clearTimeout(removalTimer);
+    }
+    removalTimersRef.current.delete(id);
+  }, []);
+
   const removeNotification = useCallback(
     (id: string) => {
       setNotifications((current) => current.filter((item) => item.id !== id));
       clearTimer(id);
+      clearRemovalTimer(id);
     },
-    [clearTimer],
+    [clearRemovalTimer, clearTimer],
   );
 
   const dismiss = useCallback(
     (id: string) => {
+      let onOpenChange: NotifyOptions["onOpenChange"];
+      let wasDismissed = false;
+
       setNotifications((current) =>
         current.map((item) => {
-          if (item.id !== id) {
+          if (item.id !== id || !item.visible) {
             return item;
           }
 
-          item.onOpenChange?.(false);
+          wasDismissed = true;
+          onOpenChange = item.onOpenChange;
           return { ...item, visible: false };
         }),
       );
 
-      clearTimer(id);
+      if (!wasDismissed) {
+        return;
+      }
 
-      setTimeout(() => {
+      onOpenChange?.(false);
+
+      clearTimer(id);
+      clearRemovalTimer(id);
+
+      const removalTimer = setTimeout(() => {
         removeNotification(id);
       }, DISMISS_TRANSITION_MS);
+      removalTimersRef.current.set(id, removalTimer);
     },
-    [clearTimer, removeNotification],
+    [clearRemovalTimer, clearTimer, removeNotification],
   );
 
   useEffect(() => {
     dismissRef.current = dismiss;
   }, [dismiss]);
+
+  useEffect(() => {
+    const timers = timersRef.current;
+    const removalTimers = removalTimersRef.current;
+
+    return () => {
+      timers.forEach((timer) => {
+        if (timer.timeoutId) {
+          clearTimeout(timer.timeoutId);
+        }
+      });
+
+      removalTimers.forEach((timeoutId) => {
+        clearTimeout(timeoutId);
+      });
+    };
+  }, []);
 
   const resolveRegion = useCallback(
     (targetRegion?: string) => {
@@ -165,16 +204,30 @@ export function NotificationProvider({
         duration,
       };
 
-      setNotifications((current) => [...current, record]);
+      clearRemovalTimer(id);
+
+      setNotifications((current) => {
+        const existingIndex = current.findIndex((item) => item.id === id);
+
+        if (existingIndex === -1) {
+          return [...current, record];
+        }
+
+        const next = [...current];
+        next[existingIndex] = record;
+        return next;
+      });
       options.onOpenChange?.(true);
 
       if (typeof duration === "number" && duration > 0) {
         startTimer(id, duration);
+      } else {
+        clearTimer(id);
       }
 
       return id;
     },
-    [defaultDuration, resolveRegion, startTimer],
+    [clearRemovalTimer, clearTimer, defaultDuration, resolveRegion, startTimer],
   );
 
   const dismissAll = useCallback(

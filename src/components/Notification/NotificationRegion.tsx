@@ -14,48 +14,41 @@ import { NotificationContext, useNotification } from "./context";
 import { NotificationList, NotificationViewport } from "./primitives";
 import { SimpleNotification } from "./SimpleNotification";
 import type {
-  NotificationPriority,
   NotificationRecord,
   NotificationRegionProps,
   ReduceMotionPreference,
 } from "./types";
 
-function NotificationLiveLane({
-  items,
-  live,
+function NotificationAnnouncement({
+  item,
   onBlur,
   onFocus,
   onMouseEnter,
   onMouseLeave,
   reduceMotion,
 }: {
-  items: NotificationRecord[];
-  live: NotificationPriority;
+  item: NotificationRecord;
   onBlur: (id: string) => void;
   onFocus: (id: string) => void;
   onMouseEnter: (id: string) => void;
   onMouseLeave: (id: string) => void;
   reduceMotion: ReduceMotionPreference;
 }) {
-  const laneItems = items.filter((item) => item.priority === live);
-
-  if (laneItems.length === 0) {
-    return null;
-  }
-
   return (
-    <Box aria-atomic="true" aria-live={live} className="contents">
-      {laneItems.map((item) => (
-        <ManagedNotificationItem
-          key={item.id}
-          item={item}
-          onBlur={onBlur}
-          onFocus={onFocus}
-          onMouseEnter={onMouseEnter}
-          onMouseLeave={onMouseLeave}
-          reduceMotion={reduceMotion}
-        />
-      ))}
+    <Box
+      aria-atomic="true"
+      aria-live={item.priority}
+      className="contents"
+      data-notification-announcement={item.priority}
+    >
+      <ManagedNotificationItem
+        item={item}
+        onBlur={onBlur}
+        onFocus={onFocus}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+        reduceMotion={reduceMotion}
+      />
     </Box>
   );
 }
@@ -196,24 +189,17 @@ export function NotificationRegion({
       {...props}
     >
       <NotificationList>
-        <NotificationLiveLane
-          items={regionNotifications}
-          live="polite"
-          onBlur={handleBlur}
-          onFocus={handleFocus}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          reduceMotion={reduceMotion}
-        />
-        <NotificationLiveLane
-          items={regionNotifications}
-          live="assertive"
-          onBlur={handleBlur}
-          onFocus={handleFocus}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          reduceMotion={reduceMotion}
-        />
+        {regionNotifications.map((item) => (
+          <NotificationAnnouncement
+            key={item.id}
+            item={item}
+            onBlur={handleBlur}
+            onFocus={handleFocus}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            reduceMotion={reduceMotion}
+          />
+        ))}
       </NotificationList>
     </NotificationViewport>
   );
