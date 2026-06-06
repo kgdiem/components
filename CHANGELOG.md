@@ -1,5 +1,11 @@
 # @kgdiem/components
 
+## 0.6.0
+
+### Minor Changes
+
+- aafe297: Add a dialog component
+
 ## 0.5.0
 
 ### Minor Changes
