@@ -1,5 +1,11 @@
 # @kgdiem/components
 
+## 0.7.0
+
+### Minor Changes
+
+- 3faf346: Add notification system
+
 ## 0.6.0
 
 ### Minor Changes
