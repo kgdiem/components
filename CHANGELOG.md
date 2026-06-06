@@ -1,5 +1,11 @@
 # @kgdiem/components
 
+## 0.8.0
+
+### Minor Changes
+
+- 5e6f327: Add docs
+
 ## 0.7.0
 
 ### Minor Changes
