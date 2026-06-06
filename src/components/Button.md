@@ -1,6 +1,6 @@
 # Button
 
-## What it is
+## What is it?
 
 `Button` is the primary action control for clicks, submits, and lightweight command surfaces.
 

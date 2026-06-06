@@ -1,6 +1,6 @@
 # Dialog
 
-## What it is
+## What is it?
 
 `Dialog` provides modal overlays for confirmations, blocking decisions, and focused workflows. The package also exports `SimpleDialog` for common modal patterns with less ceremony.
 

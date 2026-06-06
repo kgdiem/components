@@ -1,6 +1,6 @@
 # Label
 
-## What it is
+## What is it?
 
 `Label` provides consistent form field labeling across text inputs, textareas, switches, radios, selects, and combobox-style controls.
 

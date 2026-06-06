@@ -1,6 +1,6 @@
 # Text
 
-## What it is
+## What is it?
 
 `Text` is the general-purpose typography primitive for body copy, muted content, captions, and label-like text styles.
 

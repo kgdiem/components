@@ -1,6 +1,6 @@
 # FormikInput
 
-## What it is
+## What is it?
 
 `FormikInput` connects [Input](./Input.md) to Formik field state.
 

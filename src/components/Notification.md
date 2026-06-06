@@ -1,6 +1,6 @@
 # Notification
 
-## What it is
+## What is it?
 
 `Notification` provides toast-style status messaging with a provider-driven API and a lower-level set of composition primitives.
 

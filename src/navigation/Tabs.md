@@ -1,6 +1,6 @@
 # Tabs
 
-## What it is
+## What is it?
 
 `Tabs` renders tab-style navigation with `Tab` children, including support for mobile selection handling.
 

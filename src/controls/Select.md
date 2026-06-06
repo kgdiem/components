@@ -1,6 +1,6 @@
 # Select
 
-## What it is
+## What is it?
 
 `Select` is the native-style pick-one control for compact choice lists.
 

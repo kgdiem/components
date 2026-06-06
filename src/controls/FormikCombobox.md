@@ -1,6 +1,6 @@
 # FormikCombobox
 
-## What it is
+## What is it?
 
 `FormikCombobox` connects [Combobox](./Combobox.md) to Formik field state.
 

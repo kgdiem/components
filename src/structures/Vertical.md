@@ -1,6 +1,6 @@
 # Vertical
 
-## What it is
+## What is it?
 
 `Vertical` is a column-oriented layout primitive for stacking content with consistent spacing.
 

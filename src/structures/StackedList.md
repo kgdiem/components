@@ -1,6 +1,6 @@
 # StackedList
 
-## What it is
+## What is it?
 
 `StackedList` is a vertically separated list container for structured rows, with `StackedListItem` for each entry.
 

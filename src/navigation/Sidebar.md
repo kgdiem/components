@@ -1,6 +1,6 @@
 # Sidebar
 
-## What it is
+## What is it?
 
 `Sidebar` provides a composed navigation shell with header, nav, section, item, and footer building blocks.
 

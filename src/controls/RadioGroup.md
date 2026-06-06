@@ -1,6 +1,6 @@
 # RadioGroup
 
-## What it is
+## What is it?
 
 `RadioGroup` presents a single required or optional choice from a small set of mutually exclusive options.
 

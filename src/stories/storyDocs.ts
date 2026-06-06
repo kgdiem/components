@@ -10,6 +10,10 @@ type StoryDocsParameters = {
   [key: string]: unknown;
 };
 
+function stripLeadingComponentTitle(markdown: string): string {
+  return markdown.replace(/^#\s+.+\r?\n(?:\r?\n)?/, "");
+}
+
 export function withComponentDocs(
   componentDescription: string,
   parameters: StoryDocsParameters = {},
@@ -20,7 +24,7 @@ export function withComponentDocs(
       ...parameters.docs,
       description: {
         ...parameters.docs?.description,
-        component: componentDescription,
+        component: stripLeadingComponentTitle(componentDescription),
       },
     },
   };

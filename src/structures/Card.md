@@ -1,6 +1,6 @@
 # Card
 
-## What it is
+## What is it?
 
 `Card` is a contained surface for grouping related content, with optional header and footer regions.
 

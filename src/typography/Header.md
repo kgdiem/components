@@ -1,6 +1,6 @@
 # Header
 
-## What it is
+## What is it?
 
 `Header` renders styled headings while letting the caller choose the semantic heading level.
 

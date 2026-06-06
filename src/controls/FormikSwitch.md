@@ -1,6 +1,6 @@
 # FormikSwitch
 
-## What it is
+## What is it?
 
 `FormikSwitch` connects [Switch](./Switch.md) to Formik field state.
 

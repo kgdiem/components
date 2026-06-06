@@ -1,6 +1,6 @@
 # FormikSelect
 
-## What it is
+## What is it?
 
 `FormikSelect` connects [Select](./Select.md) to Formik field state.
 

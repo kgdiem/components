@@ -1,6 +1,6 @@
 # FormikRadioGroup
 
-## What it is
+## What is it?
 
 `FormikRadioGroup` connects [RadioGroup](./RadioGroup.md) to Formik field state.
 

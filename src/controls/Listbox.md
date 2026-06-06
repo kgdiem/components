@@ -1,6 +1,6 @@
 # Listbox
 
-## What it is
+## What is it?
 
 `Listbox` is a custom single-select control for richer option presentation than a native select.
 

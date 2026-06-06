@@ -1,6 +1,6 @@
 # Horizontal
 
-## What it is
+## What is it?
 
 `Horizontal` is a row-oriented layout primitive for arranging children side by side.
 

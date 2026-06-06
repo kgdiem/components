@@ -1,6 +1,6 @@
 # Combobox
 
-## What it is
+## What is it?
 
 `Combobox` is a searchable single-select control for longer or less predictable option lists.
 

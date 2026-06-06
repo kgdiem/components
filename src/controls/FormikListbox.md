@@ -1,6 +1,6 @@
 # FormikListbox
 
-## What it is
+## What is it?
 
 `FormikListbox` connects [Listbox](./Listbox.md) to Formik field state.
 

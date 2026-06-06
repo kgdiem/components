@@ -1,6 +1,6 @@
 # Textarea
 
-## What it is
+## What is it?
 
 `Textarea` is the multi-line text field for notes, descriptions, and message-style input.
 

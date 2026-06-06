@@ -1,6 +1,6 @@
 # Input
 
-## What it is
+## What is it?
 
 `Input` is the default single-line text field for typed values such as names, email addresses, and search queries.
 

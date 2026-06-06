@@ -1,6 +1,6 @@
 # Box
 
-## What it is
+## What is it?
 
 `Box` is the low-level layout primitive for wrapping content, passing through element attributes, and applying structure with classes.
 

@@ -1,6 +1,6 @@
 # FormikTextarea
 
-## What it is
+## What is it?
 
 `FormikTextarea` connects [Textarea](./Textarea.md) to Formik field state.
 

@@ -1,6 +1,6 @@
 # Page
 
-## What it is
+## What is it?
 
 `Page` is a page-width layout wrapper for centering and constraining top-level content.
 

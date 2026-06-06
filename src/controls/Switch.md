@@ -1,6 +1,6 @@
 # Switch
 
-## What it is
+## What is it?
 
 `Switch` is the binary on or off control for settings and preferences.
 
