@@ -1,12 +1,11 @@
 import { Transition } from "@headlessui/react";
+import { X } from "lucide-react";
 import { forwardRef, type ComponentPropsWithoutRef, type ReactNode } from "react";
 
 import { mergeClasses } from "../../utils/mergeClasses";
 import { Box } from "../../structures/Box";
 import { Horizontal } from "../../structures/Horizontal";
 import { Vertical } from "../../structures/Vertical";
-
-import { CloseIcon } from "./CloseIcon";
 import {
   DEFAULT_CLOSE_LABEL,
   NOTIFICATION_ACTIONS_CLASSES,
@@ -154,7 +153,7 @@ export const NotificationClose = forwardRef<HTMLButtonElement, NotificationClose
         {...props}
       >
         <span className="sr-only">{label}</span>
-        {children ?? <CloseIcon />}
+        {children ?? <X aria-hidden className="size-5" />}
       </button>
     );
   },
