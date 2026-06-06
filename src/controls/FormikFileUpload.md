@@ -1,6 +1,6 @@
 # FormikFileUpload
 
-## What it is
+## What is it?
 
 `FormikFileUpload` connects [FileUpload](./FileUpload.md) to Formik field state.
 

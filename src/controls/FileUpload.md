@@ -1,6 +1,6 @@
 # FileUpload
 
-## What it is
+## What is it?
 
 `FileUpload` is a button-triggered file picker for choosing one or more local files.
 

@@ -1,6 +1,6 @@
 # FormikPasswordInput
 
-## What it is
+## What is it?
 
 `FormikPasswordInput` connects [PasswordInput](./PasswordInput.md) to Formik field state.
 

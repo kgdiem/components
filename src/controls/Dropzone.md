@@ -1,6 +1,6 @@
 # Dropzone
 
-## What it is
+## What is it?
 
 `Dropzone` is a drag-and-drop target for choosing one or more local files.
 

@@ -20,8 +20,8 @@ These Markdown files are the canonical long-form docs for each Storybook-backed 
 - [RadioGroup](src/controls/RadioGroup.md)
 - [Listbox](src/controls/Listbox.md)
 - [Combobox](src/controls/Combobox.md)
-- [FileUpload](src/controls/FileUpload.md)
 - [Dropzone](src/controls/Dropzone.md)
+- [FileUpload](src/controls/FileUpload.md)
 - [FormikInput](src/controls/FormikInput.md)
 - [FormikPasswordInput](src/controls/FormikPasswordInput.md)
 - [FormikTextarea](src/controls/FormikTextarea.md)
@@ -30,8 +30,8 @@ These Markdown files are the canonical long-form docs for each Storybook-backed 
 - [FormikRadioGroup](src/controls/FormikRadioGroup.md)
 - [FormikListbox](src/controls/FormikListbox.md)
 - [FormikCombobox](src/controls/FormikCombobox.md)
-- [FormikFileUpload](src/controls/FormikFileUpload.md)
 - [FormikDropzone](src/controls/FormikDropzone.md)
+- [FormikFileUpload](src/controls/FormikFileUpload.md)
 
 ## Structures
 

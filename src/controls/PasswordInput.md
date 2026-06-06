@@ -1,6 +1,6 @@
 # PasswordInput
 
-## What it is
+## What is it?
 
 `PasswordInput` is a single-line password field with a built-in visibility toggle.
 

@@ -1,6 +1,6 @@
 # FormikDropzone
 
-## What it is
+## What is it?
 
 `FormikDropzone` connects [Dropzone](./Dropzone.md) to Formik field state.
 
