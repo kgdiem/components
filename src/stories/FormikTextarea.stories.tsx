@@ -1,13 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Form, Formik } from "formik";
 
+import componentDocs from "../controls/FormikTextarea.md?raw";
 import { FormikTextarea } from "../controls/FormikTextarea";
 import "../index.css";
+import { withComponentDocs } from "./storyDocs";
 
 const meta = {
   title: "Controls/Formik/Textarea",
   component: FormikTextarea,
   tags: ["autodocs"],
+  parameters: withComponentDocs(componentDocs),
   args: {
     name: "notes",
     placeholder: "Write your notes",

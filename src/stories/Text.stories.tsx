@@ -1,12 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
+import componentDocs from "../typography/Text.md?raw";
 import "../index.css";
 import { Text } from "../typography/Text";
+import { withComponentDocs } from "./storyDocs";
 
 const meta = {
   title: "Typography/Text",
   component: Text,
   tags: ["autodocs"],
+  parameters: withComponentDocs(componentDocs),
   args: {
     children: "Body text",
     variant: "body",

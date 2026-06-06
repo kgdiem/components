@@ -1,13 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
 
+import componentDocs from "../controls/Input.md?raw";
 import "../index.css";
 import { Input } from "../controls/Input";
+import { withComponentDocs } from "./storyDocs";
 
 const meta = {
   title: "Controls/Input",
   component: Input,
   tags: ["autodocs"],
+  parameters: withComponentDocs(componentDocs),
   args: {
     placeholder: "Enter text",
     disabled: false,

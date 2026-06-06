@@ -6,6 +6,12 @@ It is intended to be minimal, extensible, and unopinionated, heavily inspired by
 
 Built with React, Tailwind CSS, Headless UI, and Storybook.
 
+## Documentation
+
+Browse the hosted component library at [components.kevindiem.com](https://components.kevindiem.com).
+
+For GitHub-first navigation, each Storybook-backed component also has a co-located Markdown doc in the repo. Start with [COMPONENTS.md](./COMPONENTS.md).
+
 ## Installation
 
 ```bash

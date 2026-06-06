@@ -2,13 +2,16 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Building2, CreditCard, User, Users } from "lucide-react";
 import { useState } from "react";
 
+import componentDocs from "../navigation/Tabs.md?raw";
 import "../index.css";
 import { Tab, Tabs } from "../navigation/Tabs";
+import { withComponentDocs } from "./storyDocs";
 
 const meta = {
   title: "Navigation/Tabs",
   component: Tabs,
   tags: ["autodocs"],
+  parameters: withComponentDocs(componentDocs),
   args: {
     "aria-label": "Settings",
     children: null,

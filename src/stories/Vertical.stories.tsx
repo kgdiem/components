@@ -1,13 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
+import componentDocs from "../structures/Vertical.md?raw";
 import "../index.css";
 import { Vertical } from "../structures/Vertical";
 import { Text } from "../typography/Text";
+import { withComponentDocs } from "./storyDocs";
 
 const meta = {
   title: "Structures/Vertical",
   component: Vertical,
   tags: ["autodocs"],
+  parameters: withComponentDocs(componentDocs),
   args: {
     className: "gap-3 rounded-md border border-border p-4",
     children: (

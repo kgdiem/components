@@ -1,13 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
 
+import componentDocs from "../controls/Switch.md?raw";
 import "../index.css";
 import { Switch } from "../controls/Switch";
+import { withComponentDocs } from "./storyDocs";
 
 const meta = {
   title: "Controls/Switch",
   component: Switch,
   tags: ["autodocs"],
+  parameters: withComponentDocs(componentDocs),
   args: {
     label: "Enable notifications",
     disabled: false,

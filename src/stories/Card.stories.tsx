@@ -1,17 +1,19 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
+import componentDocs from "../structures/Card.md?raw";
 import "../index.css";
 import { Card } from "../structures/Card";
 import { Header } from "../typography/Header";
 import { Text } from "../typography/Text";
+import { withComponentDocs } from "./storyDocs";
 
 const meta = {
   title: "Structures/Card",
   component: Card,
   tags: ["autodocs"],
-  parameters: {
+  parameters: withComponentDocs(componentDocs, {
     layout: "centered",
-  },
+  }),
   args: {
     className: "w-[420px]",
     children: (

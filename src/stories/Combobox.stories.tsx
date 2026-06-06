@@ -1,8 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
 
+import componentDocs from "../controls/Combobox.md?raw";
 import "../index.css";
 import { Combobox } from "../controls/Combobox";
+import { withComponentDocs } from "./storyDocs";
 
 const options = [
   { value: "draft", label: "Draft" },
@@ -15,6 +17,7 @@ const meta = {
   title: "Controls/Combobox",
   component: Combobox,
   tags: ["autodocs"],
+  parameters: withComponentDocs(componentDocs),
   args: {
     options,
     placeholder: "Search status",

@@ -1,8 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
 
+import componentDocs from "../controls/RadioGroup.md?raw";
 import "../index.css";
 import { RadioGroup } from "../controls/RadioGroup";
+import { withComponentDocs } from "./storyDocs";
 
 const options = [
   {
@@ -27,6 +29,7 @@ const meta = {
   title: "Controls/RadioGroup",
   component: RadioGroup,
   tags: ["autodocs"],
+  parameters: withComponentDocs(componentDocs),
   args: {
     options,
     disabled: false,

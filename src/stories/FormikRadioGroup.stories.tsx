@@ -1,8 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Form, Formik } from "formik";
 
+import componentDocs from "../controls/FormikRadioGroup.md?raw";
 import { FormikRadioGroup } from "../controls/FormikRadioGroup";
 import "../index.css";
+import { withComponentDocs } from "./storyDocs";
 
 const options = [
   {
@@ -27,6 +29,7 @@ const meta = {
   title: "Controls/Formik/RadioGroup",
   component: FormikRadioGroup,
   tags: ["autodocs"],
+  parameters: withComponentDocs(componentDocs),
   args: {
     name: "channel",
     options,
