@@ -1,5 +1,11 @@
 # @kgdiem/components
 
+## 0.10.0
+
+### Minor Changes
+
+- 9f4af9d: Add an overlay component
+
 ## 0.9.0
 
 ### Minor Changes
