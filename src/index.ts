@@ -28,6 +28,20 @@ export type {
 } from "./components/Dialog";
 
 export {
+  Overlay,
+  OverlayBackdrop,
+  OverlayContainer,
+  OverlayContent,
+  OverlayRoot,
+} from "./components/Overlay";
+export type {
+  OverlayBackdropProps,
+  OverlayContentProps,
+  OverlayProps,
+  OverlayRootProps,
+} from "./components/Overlay";
+
+export {
   Notification,
   NotificationActions,
   NotificationBody,

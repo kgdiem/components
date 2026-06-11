@@ -46,4 +46,5 @@ import {
 
 - [Button](./Button.md)
 - [Notification](./Notification.md)
+- [Overlay](./Overlay.md)
 - [Card](../structures/Card.md)
