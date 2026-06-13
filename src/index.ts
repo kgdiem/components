@@ -134,11 +134,18 @@ export type { LabelProps } from "./typography/Label";
 
 export {
   Sidebar,
+  SidebarDrawer,
   SidebarFooter,
   SidebarHeader,
   SidebarItem,
+  SidebarMobileButton,
   SidebarNav,
   SidebarSection,
+} from "./navigation/Sidebar";
+export type {
+  SidebarDrawerProps,
+  SidebarMobileButtonProps,
+  SidebarProps,
 } from "./navigation/Sidebar";
 
 export { Tab, Tabs } from "./navigation/Tabs";
