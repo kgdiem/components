@@ -1,0 +1,18 @@
+/*
+ * Source-mode entrypoint for apps that compile Tailwind themselves.
+ *
+ * Usage in host app:
+ *   @import "tailwindcss";
+ *   @import "@kgdiem/components/source.css";
+ *
+ * This published entrypoint scans compiled files from dist/ so apps consuming
+ * the package from a registry generate exactly the utility classes used by
+ * built component artifacts.
+ */
+@import "./theme.css";
+
+@source "../dist/components";
+@source "../dist/controls";
+@source "../dist/navigation";
+@source "../dist/structures";
+@source "../dist/typography";

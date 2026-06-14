@@ -23,7 +23,7 @@ const SWITCH_CLASSES =
   "group inline-flex h-6 w-11 items-center rounded-full bg-surfaceMuted p-1 transition-colors duration-150 data-[checked]:bg-primary data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50";
 
 const HANDLE_CLASSES =
-  "size-4 rounded-full bg-white shadow-sm transition-transform duration-150 group-data-[checked]:translate-x-5";
+  "size-4 rounded-full bg-surface shadow-sm transition-transform duration-150 group-data-[checked]:translate-x-5";
 
 const LABEL_CLASSES = "text-sm text-text";
 

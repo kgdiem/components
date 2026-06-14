@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { Canvas, Controls, Description, Stories, Title } from "@storybook/addon-docs/blocks";
 import { Calendar, ChartPie, Files, Folder, Home, Users } from "lucide-react";
 import { useState, type ReactNode } from "react";
 
@@ -151,17 +150,6 @@ const meta = {
   tags: ["autodocs"],
   parameters: withComponentDocs(componentDocs, {
     layout: "fullscreen",
-    docs: {
-      page: () => (
-        <>
-          <Title />
-          <Description />
-          <Canvas of={Default} />
-          <Controls of={Sidebar} />
-          <Stories includePrimary={false} />
-        </>
-      ),
-    },
   }),
 } satisfies Meta<typeof Sidebar>;
 
@@ -269,10 +257,4 @@ export const MobileDrawer: Story = {
   render: () => <MobileDrawerStory />,
 };
 
-export const MobileDrawerOpen: Story = {
-  render: () => (
-    <Box className="bg-gray-100 px-6 py-10">
-      <MobilePreviewShell open onOpenChange={() => undefined} />
-    </Box>
-  ),
-};
+

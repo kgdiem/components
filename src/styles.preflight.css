@@ -1,0 +1,12 @@
+/*
+ * Optional precompiled stylesheet that includes Preflight.
+ *
+ * Prefer `@kgdiem/components/styles.css` for most integrations so host apps
+ * retain full control over global resets. This entrypoint is for consumers that
+ * want the component library to provide reset styles as well.
+ */
+@import "tailwindcss/theme";
+@import "tailwindcss/preflight";
+@import "tailwindcss/utilities" layer(components);
+@import "./theme.css";
+@config "../tailwind.config.js";

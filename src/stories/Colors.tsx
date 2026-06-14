@@ -67,10 +67,6 @@ const COLOR_GROUPS: readonly ColorGroup[] = [
     title: "Focus",
     items: [{ token: "focus", swatchClass: "bg-focus" }],
   },
-  {
-    title: "Brand",
-    items: [{ token: "brand", swatchClass: "bg-brand" }],
-  },
 ] as const;
 
 export const Colors = () => (

@@ -8,7 +8,7 @@ export type HeaderProps = ComponentPropsWithoutRef<"h2"> & {
   className?: string;
 };
 
-const BASE_HEADER_CLASSES = "font-semibold tracking-tight text-text";
+const BASE_HEADER_CLASSES = "font-heading font-semibold tracking-tight text-text";
 
 const HEADER_SIZE_CLASSES: Record<HeaderElement, string> = {
   h1: "text-4xl",

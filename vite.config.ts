@@ -29,10 +29,12 @@ export default defineConfig({
     }),
   ],
   build: {
+    cssCodeSplit: true,
     lib: {
       entry: {
         index: path.resolve(dirname, "src/index.ts"),
         styles: path.resolve(dirname, "src/styles.ts"),
+        "styles-preflight": path.resolve(dirname, "src/styles.preflight.ts"),
       },
       name: "Components",
     },
@@ -54,7 +56,7 @@ export default defineConfig({
           preserveModulesRoot: path.resolve(dirname, "src"),
           entryFileNames: "[name].js",
           chunkFileNames: "[name].js",
-          assetFileNames: "styles[extname]",
+          assetFileNames: "[name][extname]",
         },
         {
           format: "cjs",
@@ -64,7 +66,7 @@ export default defineConfig({
           preserveModulesRoot: path.resolve(dirname, "src"),
           entryFileNames: "[name].cjs",
           chunkFileNames: "[name].cjs",
-          assetFileNames: "styles[extname]",
+          assetFileNames: "[name][extname]",
         },
       ],
     },

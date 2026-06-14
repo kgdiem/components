@@ -20,7 +20,7 @@ npm install @kgdiem/components
 
 ## Usage
 
-Import the components and styles into your project.
+Import the components and pick the stylesheet mode you want.
 
 ```tsx
 import { Button, Input } from "@kgdiem/components";
@@ -28,6 +28,40 @@ import "@kgdiem/components/styles.css";
 
 <Button>Click me</Button>
 <Input placeholder="Enter your name" />
+```
+
+`styles.css` intentionally excludes Tailwind preflight and emits generated
+classes in the `components` cascade layer so consumer app utilities (including
+responsive variants like `md:hidden`) are not overridden by library CSS.
+
+### Integration modes
+
+- `@kgdiem/components/source.css` (Tailwind source-mode)
+  - For apps that compile Tailwind themselves
+  - Published-package entrypoint; scans `dist/` component files via `@source`
+    so one host Tailwind build generates app + component utilities
+- `@kgdiem/components/source.local.css` (Tailwind source-mode, linked workspace)
+  - Use only when `@kgdiem/components` is linked locally (for example `file:`)
+  - Scans local `src/` component files so host builds pick up in-progress
+    utility class changes without rebuilding `dist/`
+- `@kgdiem/components/styles.css` (precompiled, slim)
+  - For consumers that want drop-in CSS without running Tailwind for the library
+  - Excludes preflight and keeps generated classes in `@layer components`
+- `@kgdiem/components/styles.preflight.css` (precompiled + reset)
+  - Optional bundle for consumers that also want Tailwind preflight defaults
+
+Source-mode host CSS example:
+
+```css
+@import "tailwindcss";
+@import "@kgdiem/components/source.css";
+```
+
+Linked-workspace source-mode host CSS example:
+
+```css
+@import "tailwindcss";
+@import "@kgdiem/components/source.local.css";
 ```
 
 ## Theming

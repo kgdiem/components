@@ -51,7 +51,7 @@ describe("Sidebar", () => {
           </SidebarSection>
         </SidebarNav>
         <SidebarFooter>Profile</SidebarFooter>
-      </Sidebar>,
+      </Sidebar>
     );
 
     expect(html).toContain("Logo");
@@ -64,7 +64,7 @@ describe("Sidebar", () => {
     const html = renderToStaticMarkup(
       <Sidebar className="w-64">
         <SidebarItem className="custom-item">Item</SidebarItem>
-      </Sidebar>,
+      </Sidebar>
     );
 
     expect(html).toContain("w-64");
@@ -73,26 +73,26 @@ describe("Sidebar", () => {
 
   it("applies active styles on SidebarItem", () => {
     const html = renderToStaticMarkup(
-      <SidebarItem active>Active item</SidebarItem>,
+      <SidebarItem active>Active item</SidebarItem>
     );
 
-    expect(html).toContain("bg-black/10");
-    expect(html).toContain("text-textInverse");
+    expect(html).toContain("bg-primarySubtle");
+    expect(html).toContain("text-primary");
   });
 
   it("renders inactive item styles by default", () => {
     const html = renderToStaticMarkup(<SidebarItem>Inactive item</SidebarItem>);
 
-    expect(html).toContain("text-textInverse/80");
-    expect(html).toContain("hover:bg-black/10");
-    expect(html).not.toMatch(/transition-colors bg-black\/10 text-textInverse/);
+    expect(html).toContain("text-textMuted");
+    expect(html).toContain("hover:bg-surfaceMuted");
+    expect(html).not.toMatch(/bg-primarySubtle text-primary/);
   });
 
   it("supports polymorphic as rendering with passed-through props", () => {
     const html = renderToStaticMarkup(
       <SidebarItem as="a" href="/dashboard">
         Link item
-      </SidebarItem>,
+      </SidebarItem>
     );
 
     expect(html).toContain('href="/dashboard"');
@@ -111,10 +111,15 @@ describe("Sidebar", () => {
       <Sidebar collapsible collapsed>
         <SidebarNav>
           <SidebarSection label="Main">
-            <SidebarItem as="a" href="/dashboard" icon={Home} label="Dashboard" />
+            <SidebarItem
+              as="a"
+              href="/dashboard"
+              icon={Home}
+              label="Dashboard"
+            />
           </SidebarSection>
         </SidebarNav>
-      </Sidebar>,
+      </Sidebar>
     );
 
     expect(html).toContain('data-collapsible="true"');
@@ -129,10 +134,15 @@ describe("Sidebar", () => {
       <Sidebar collapsible>
         <SidebarNav>
           <SidebarSection>
-            <SidebarItem as="a" href="/dashboard" icon={Home} label="Dashboard" />
+            <SidebarItem
+              as="a"
+              href="/dashboard"
+              icon={Home}
+              label="Dashboard"
+            />
           </SidebarSection>
         </SidebarNav>
-      </Sidebar>,
+      </Sidebar>
     );
 
     expect(html).toContain("w-72");
@@ -141,7 +151,13 @@ describe("Sidebar", () => {
 
   it("renders a standard icon and label layout when label props are provided", () => {
     const html = renderToStaticMarkup(
-      <SidebarItem as="a" href="/dashboard" badge="3" icon={Home} label="Dashboard" />,
+      <SidebarItem
+        as="a"
+        href="/dashboard"
+        badge="3"
+        icon={Home}
+        label="Dashboard"
+      />
     );
 
     expect(html).toContain("Dashboard");
@@ -159,10 +175,12 @@ describe("Sidebar", () => {
             </SidebarItem>
           </SidebarSection>
         </SidebarNav>
-      </Sidebar>,
+      </Sidebar>
     );
 
-    expect(html).toContain("group-data-[collapsed=true]/sidebar:justify-center");
+    expect(html).toContain(
+      "group-data-[collapsed=true]/sidebar:justify-center"
+    );
   });
 });
 
@@ -174,11 +192,16 @@ describe("Sidebar mobile navigation", () => {
           <SidebarHeader>Logo</SidebarHeader>
           <SidebarNav>
             <SidebarSection>
-              <SidebarItem as="a" href="/dashboard" icon={Home} label="Dashboard" />
+              <SidebarItem
+                as="a"
+                href="/dashboard"
+                icon={Home}
+                label="Dashboard"
+              />
             </SidebarSection>
           </SidebarNav>
         </Sidebar>
-      </SidebarDrawer>,
+      </SidebarDrawer>
     );
 
     expect(result.html).toContain("Logo");
@@ -196,7 +219,7 @@ describe("Sidebar mobile navigation", () => {
             <SidebarHeader>Logo</SidebarHeader>
           </Sidebar>
         </SidebarDrawer>
-      </div>,
+      </div>
     );
 
     expect(result.html).toContain("absolute inset-0");
@@ -212,7 +235,7 @@ describe("Sidebar mobile navigation", () => {
             <SidebarHeader>Logo</SidebarHeader>
           </Sidebar>
         </SidebarDrawer>
-      </div>,
+      </div>
     );
 
     const dialog = document.body.querySelector('[role="dialog"]');
@@ -225,7 +248,7 @@ describe("Sidebar mobile navigation", () => {
 
   it("renders a button with the expected mobile navigation label", () => {
     const html = renderToStaticMarkup(
-      <SidebarMobileButton aria-label="Open navigation" />,
+      <SidebarMobileButton aria-label="Open navigation" />
     );
 
     expect(html).toContain('aria-label="Open navigation"');
@@ -234,8 +257,10 @@ describe("Sidebar mobile navigation", () => {
 });
 
 describe("Sidebar Storybook docs", () => {
-  it("uses the base Sidebar component and a custom docs page layout", () => {
+  it("uses the base Sidebar component and component docs description", () => {
     expect(sidebarStoriesMeta.component).toBe(Sidebar);
-    expect(typeof sidebarStoriesMeta.parameters?.docs?.page).toBe("function");
+    expect(sidebarStoriesMeta.parameters?.docs?.description?.component).toContain(
+      "## What is it?",
+    );
   });
 });

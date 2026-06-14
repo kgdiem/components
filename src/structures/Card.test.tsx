@@ -9,14 +9,14 @@ describe("Card", () => {
 
     expect(html).toContain(">Body</div>");
     expect(html).toContain("sm:rounded-lg");
-    expect(html).toContain("bg-white");
+    expect(html).toContain("bg-surface");
   });
 
   it("renders optional header and footer slots", () => {
     const html = renderToStaticMarkup(
       <Card header={<div>Header</div>} footer={<div>Footer</div>}>
         Body
-      </Card>,
+      </Card>
     );
 
     expect(html).toContain("Header");

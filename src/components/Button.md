@@ -19,6 +19,8 @@ import { Button } from "@kgdiem/components";
 ## Key props and composition
 
 - `variant` controls visual emphasis: `primary`, `secondary`, or `tertiary`.
+- `size` controls the control's footprint: `sm`, `md` (default), or `lg`.
+- `loading` shows an inline spinner and disables interaction while an action is in flight.
 - `disabled` prevents interaction and removes the control from the action flow.
 - `children` provides the button label or custom inline content.
 
@@ -31,6 +33,7 @@ import { Button } from "@kgdiem/components";
 
 - Prefer clear action labels over vague text like "Submit" when the result matters.
 - Use `disabled` only when the reason is obvious from surrounding context or helper text.
+- `loading` sets `aria-busy` and disables the control so the in-flight action cannot be triggered twice; keep the label describing the action (e.g. "Saving…").
 
 ## Related components
 

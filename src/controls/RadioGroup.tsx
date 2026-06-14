@@ -35,9 +35,9 @@ const FIELD_CLASSES =
   "flex cursor-pointer items-start gap-2 rounded-md border border-border bg-surface p-2 text-text transition-colors duration-150 data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50";
 
 const RADIO_CLASSES =
-  "mt-0.5 flex size-4 items-center justify-center rounded-full border border-border bg-white transition-colors duration-150 data-[checked]:border-primary data-[checked]:bg-primary";
+  "mt-0.5 flex size-4 items-center justify-center rounded-full border border-border bg-surface transition-colors duration-150 data-[checked]:border-primary data-[checked]:bg-primary";
 
-const RADIO_DOT_CLASSES = "size-2 rounded-full bg-white";
+const RADIO_DOT_CLASSES = "size-2 rounded-full bg-textInverse";
 
 const LABEL_CLASSES = "text-sm";
 const DESCRIPTION_CLASSES = "text-xs text-textMuted";
@@ -65,7 +65,11 @@ export function RadioGroup({
       onChange={onChange}
     >
       {options.map((option) => (
-        <Field key={option.value} className={FIELD_CLASSES} disabled={option.disabled}>
+        <Field
+          key={option.value}
+          className={FIELD_CLASSES}
+          disabled={option.disabled}
+        >
           <Radio value={option.value} className={RADIO_CLASSES}>
             <span aria-hidden="true" className={RADIO_DOT_CLASSES} />
           </Radio>

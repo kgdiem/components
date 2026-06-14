@@ -10,7 +10,7 @@ export type TextProps = HTMLAttributes<HTMLElement> & {
   variant?: TextVariant;
 };
 
-const BASE_TEXT_CLASSES = "text-text";
+const BASE_TEXT_CLASSES = "font-body text-text";
 
 const TEXT_VARIANT_CLASSES: Record<TextVariant, string> = {
   body: "text-base",
