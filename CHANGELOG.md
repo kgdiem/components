@@ -1,5 +1,11 @@
 # @kgdiem/components
 
+## 1.0.0
+
+### Major Changes
+
+- a9a8d9a: Refine color palette, add dark mode, add collapsable sidebar, button variants, configurable font family for header and body text and more
+
 ## 0.10.0
 
 ### Minor Changes
