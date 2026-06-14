@@ -7,6 +7,7 @@ These Markdown files are the canonical long-form docs for each Storybook-backed 
 ## Components
 
 - [Button](src/components/Button.md)
+- [Spinner](src/components/Spinner.md)
 - [Dialog](src/components/Dialog.md)
 - [Notification](src/components/Notification.md)
 

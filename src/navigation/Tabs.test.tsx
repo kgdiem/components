@@ -36,7 +36,8 @@ describe("Tabs", () => {
 
     expect(html).toContain('aria-current="page"');
     expect(html).toContain("border-primary");
-    expect(html).toContain("text-primary");
+    expect(html).toContain("text-text");
+    expect(html).toContain("font-semibold");
   });
 
   it("renders mobile select with all labels and current default", () => {

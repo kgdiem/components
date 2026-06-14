@@ -1,24 +1,20 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import {
-  Calendar,
-  ChartPie,
-  Files,
-  Folder,
-  Home,
-  Users,
-} from "lucide-react";
-import type { ReactNode } from "react";
+import { Calendar, ChartPie, Files, Folder, Home, Users } from "lucide-react";
+import { useState, type ReactNode } from "react";
 
 import componentDocs from "../navigation/Sidebar.md?raw";
 import "../index.css";
+import { Button } from "../components/Button";
 import { Box } from "../structures/Box";
-import { Horizontal } from "../structures/Horizontal";
+import { Text } from "../typography/Text";
 import { withComponentDocs } from "./storyDocs";
 import {
   Sidebar,
+  SidebarDrawer,
   SidebarFooter,
   SidebarHeader,
   SidebarItem,
+  SidebarMobileButton,
   SidebarNav,
   SidebarSection,
 } from "../navigation/Sidebar";
@@ -26,7 +22,7 @@ import {
 function SidebarStoryFrame({ children }: { children: ReactNode }) {
   return (
     <div className="flex h-[36rem] w-full max-w-5xl overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
-      <div className="flex w-72 shrink-0 flex-col">{children}</div>
+      {children}
       <main className="flex flex-1 flex-col bg-gray-50 p-8">
         <h2 className="text-lg font-semibold text-gray-900">Page content</h2>
         <p className="mt-2 text-sm text-gray-600">
@@ -36,6 +32,12 @@ function SidebarStoryFrame({ children }: { children: ReactNode }) {
     </div>
   );
 }
+
+type SidebarDesktopStoryProps = {
+  collapsed?: boolean;
+  collapsible?: boolean;
+  title?: ReactNode;
+};
 
 const navigation = [
   { name: "Dashboard", href: "#", icon: Home, count: "5", current: true },
@@ -52,28 +54,24 @@ const teams = [
   { name: "Operations", href: "#", initial: "O", current: false },
 ];
 
-const meta = {
-  title: "Navigation/Sidebar",
-  component: Sidebar,
-  tags: ["autodocs"],
-  parameters: withComponentDocs(componentDocs),
-  decorators: [
-    (Story) => (
-      <SidebarStoryFrame>
-        <Story />
-      </SidebarStoryFrame>
-    ),
-  ],
-} satisfies Meta<typeof Sidebar>;
-
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-export const Default: Story = {
-  render: () => (
-    <Sidebar className="h-full min-h-0">
+function SidebarNavigation({
+  collapsed = false,
+  collapsible = false,
+  title = "YourCCO",
+}: SidebarDesktopStoryProps) {
+  return (
+    <Sidebar
+      collapsed={collapsed}
+      collapsible={collapsible}
+      className={collapsible ? "h-full min-h-0" : "h-full min-h-0 w-72"}
+    >
       <SidebarHeader>
-        <span className="text-lg font-semibold text-textInverse">YourCCO</span>
+        <span className={collapsed ? "sr-only" : "text-lg font-semibold text-textInverse"}>
+          {title}
+        </span>
+        <span className={collapsed ? "text-lg font-semibold text-textInverse" : "sr-only"}>
+          YC
+        </span>
       </SidebarHeader>
 
       <SidebarNav>
@@ -81,27 +79,14 @@ export const Default: Story = {
           <ul role="list" className="-mx-2 space-y-1">
             {navigation.map((item) => (
               <li key={item.name}>
-                <SidebarItem as="a" href={item.href} active={item.current}>
-                  <Horizontal className="w-full items-center gap-x-3">
-                    <item.icon
-                      aria-hidden="true"
-                      className={
-                        item.current
-                          ? "size-6 shrink-0 text-textInverse"
-                          : "size-6 shrink-0 text-textInverse/80 group-hover:text-textInverse"
-                      }
-                    />
-                    {item.name}
-                    {item.count ? (
-                      <Box
-                        aria-hidden="true"
-                        className="ml-auto w-9 min-w-max rounded-full bg-brand px-2.5 py-0.5 text-center text-xs/5 font-medium whitespace-nowrap text-textInverse outline-1 -outline-offset-1 outline-white/20"
-                      >
-                        {item.count}
-                      </Box>
-                    ) : null}
-                  </Horizontal>
-                </SidebarItem>
+                <SidebarItem
+                  as="a"
+                  href={item.href}
+                  active={item.current}
+                  icon={item.icon}
+                  label={item.name}
+                  badge={item.count}
+                />
               </li>
             ))}
           </ul>
@@ -112,12 +97,14 @@ export const Default: Story = {
             {teams.map((team) => (
               <li key={team.name}>
                 <SidebarItem as="a" href={team.href} active={team.current}>
-                  <Horizontal className="w-full items-center gap-x-3">
+                  <Box className="flex w-full items-center gap-x-3 group-data-[collapsed=true]/sidebar:w-auto group-data-[collapsed=true]/sidebar:justify-center group-data-[collapsed=true]/sidebar:gap-x-0">
                     <Box className="flex size-6 shrink-0 items-center justify-center rounded-lg border border-white/30 bg-black/10 text-[0.625rem] font-medium text-textInverse">
                       {team.initial}
                     </Box>
-                    <Box className="truncate">{team.name}</Box>
-                  </Horizontal>
+                    <Box className="truncate group-data-[collapsed=true]/sidebar:hidden">
+                      {team.name}
+                    </Box>
+                  </Box>
                 </SidebarItem>
               </li>
             ))}
@@ -125,8 +112,12 @@ export const Default: Story = {
         </SidebarSection>
 
         <SidebarFooter>
-          <SidebarItem as="a" href="#" className="items-center gap-x-4 px-6 py-3">
-            <Horizontal className="items-center gap-x-4">
+          <SidebarItem
+            as="a"
+            href="#"
+            className="items-center gap-x-4 px-6 py-3 group-data-[collapsed=true]/sidebar:justify-center"
+          >
+            <Box className="flex items-center gap-x-4 group-data-[collapsed=true]/sidebar:gap-x-0">
               <Box
                 aria-hidden="true"
                 className="flex size-8 shrink-0 items-center justify-center rounded-full bg-black/10 text-sm font-medium text-textInverse outline -outline-offset-1 outline-white/10"
@@ -134,29 +125,136 @@ export const Default: Story = {
                 JL
               </Box>
               <span className="sr-only">Your profile</span>
-              <span aria-hidden="true">Jordan Lee</span>
-            </Horizontal>
+              <span aria-hidden="true" className="group-data-[collapsed=true]/sidebar:hidden">
+                Jordan Lee
+              </span>
+            </Box>
           </SidebarItem>
         </SidebarFooter>
       </SidebarNav>
     </Sidebar>
-  ),
+  );
+}
+
+function SidebarDesktopStory(props: SidebarDesktopStoryProps) {
+  return (
+    <SidebarStoryFrame>
+      <SidebarNavigation {...props} />
+    </SidebarStoryFrame>
+  );
+}
+
+const meta = {
+  title: "Navigation/Sidebar",
+  component: Sidebar,
+  tags: ["autodocs"],
+  parameters: withComponentDocs(componentDocs, {
+    layout: "fullscreen",
+  }),
+} satisfies Meta<typeof Sidebar>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
+  render: () => <SidebarDesktopStory />,
+};
+
+function CollapsibleSidebarStory() {
+  const [collapsed, setCollapsed] = useState(false);
+
+  return (
+    <div className="flex h-[36rem] w-full max-w-5xl overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
+      <SidebarNavigation collapsed={collapsed} collapsible />
+      <main className="flex flex-1 flex-col gap-4 bg-gray-50 p-8">
+        <h2 className="text-lg font-semibold text-gray-900">Collapsible navigation</h2>
+        <p className="text-sm text-gray-600">
+          Collapse the sidebar to switch from a full navigation column to a compact rail.
+        </p>
+        <Text className="text-sm text-gray-500">
+          Current state: {collapsed ? "collapsed" : "expanded"}
+        </Text>
+        <Button variant="secondary" onClick={() => setCollapsed((current) => !current)}>
+          {collapsed ? "Expand sidebar" : "Collapse sidebar"}
+        </Button>
+      </main>
+    </div>
+  );
+}
+
+export const Collapsible: Story = {
+  render: () => <CollapsibleSidebarStory />,
 };
 
 export const WithSectionLabel: Story = {
   render: () => (
-    <Sidebar className="h-full min-h-0">
-      <SidebarHeader>Acme Inc</SidebarHeader>
-      <SidebarNav>
-        <SidebarSection label="Your teams">
-          <SidebarItem as="a" href="#">
-            Design
-          </SidebarItem>
-          <SidebarItem as="a" href="#" active>
-            Engineering
-          </SidebarItem>
-        </SidebarSection>
-      </SidebarNav>
-    </Sidebar>
+    <SidebarStoryFrame>
+      <Sidebar className="h-full min-h-0 w-72">
+        <SidebarHeader>Acme Inc</SidebarHeader>
+        <SidebarNav>
+          <SidebarSection label="Your teams">
+            <SidebarItem as="a" href="#">
+              Design
+            </SidebarItem>
+            <SidebarItem as="a" href="#" active>
+              Engineering
+            </SidebarItem>
+          </SidebarSection>
+        </SidebarNav>
+      </Sidebar>
+    </SidebarStoryFrame>
   ),
 };
+
+function MobilePreviewShell({
+  open,
+  onOpenChange,
+}: {
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+}) {
+  return (
+    <Box className="relative mx-auto flex h-[36rem] w-full max-w-sm flex-col overflow-hidden rounded-[2rem] border border-gray-200 bg-white shadow-sm">
+      <Box className="flex items-center gap-x-3 border-b border-gray-200 bg-white px-4 py-3">
+        <SidebarMobileButton aria-label="Open navigation" onClick={() => onOpenChange(true)} />
+        <span className="min-w-0 flex-1 truncate text-sm font-semibold text-gray-900">
+          YourCCO
+        </span>
+        <Box className="rounded-full bg-gray-100 px-2 py-1 text-xs font-medium text-gray-600">
+          Mobile
+        </Box>
+      </Box>
+
+      <Box className="flex flex-1 flex-col bg-gray-50 p-6">
+        <h2 className="text-lg font-semibold text-gray-900">Mobile navigation</h2>
+        <p className="mt-2 text-sm text-gray-600">
+          This preview is constrained inside the Storybook canvas so the drawer can be reviewed
+          without resizing the entire browser.
+        </p>
+        <Button className="mt-4 self-start" variant="secondary" onClick={() => onOpenChange(true)}>
+          Open drawer
+        </Button>
+      </Box>
+
+      <SidebarDrawer contained open={open} onClose={onOpenChange}>
+        <SidebarNavigation title="YourCCO" />
+      </SidebarDrawer>
+    </Box>
+  );
+}
+
+function MobileDrawerStory() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <Box className="bg-gray-100 px-6 py-10">
+      <MobilePreviewShell open={open} onOpenChange={setOpen} />
+    </Box>
+  );
+}
+
+export const MobileDrawer: Story = {
+  render: () => <MobileDrawerStory />,
+};
+
+

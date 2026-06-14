@@ -1,0 +1,17 @@
+/*
+ * Linked-workspace source-mode entrypoint.
+ *
+ * Usage in host app when @kgdiem/components is linked via file:/workspace:
+ *   @import "tailwindcss";
+ *   @import "@kgdiem/components/source.local.css";
+ *
+ * This entrypoint scans local source files so host Tailwind builds pick up
+ * utility classes while developing component code without rebuilding dist/.
+ */
+@import "./theme.css";
+
+@source "./components";
+@source "./controls";
+@source "./navigation";
+@source "./structures";
+@source "./typography";

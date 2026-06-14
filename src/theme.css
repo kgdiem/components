@@ -7,7 +7,6 @@
  * Example:
  *   :root {
  *     --components-color-primary: rgb(100 80 200);
- *     --components-color-brand: rgb(67 56 202);
  *   }
  */
 @layer base {
@@ -46,7 +45,45 @@
 
     --components-color-focus: rgb(8 145 178);
 
-    --components-color-brand: rgb(67 56 202);
+    --components-font-body: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --components-font-heading: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --components-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  .dark {
+    --components-color-bg: rgb(2 6 23);
+    --components-color-surface: rgb(15 23 42);
+    --components-color-surfaceRaised: rgb(30 41 59);
+    --components-color-surfaceMuted: rgb(30 41 59);
+
+    --components-color-text: rgb(241 245 249);
+    --components-color-textMuted: rgb(148 163 184);
+    --components-color-textSubtle: rgb(100 116 139);
+    --components-color-textInverse: rgb(15 23 42);
+
+    --components-color-border: rgb(51 65 85);
+    --components-color-borderSubtle: rgb(30 41 59);
+    --components-color-borderStrong: rgb(71 85 105);
+
+    --components-color-primary: rgb(34 211 238);
+    --components-color-primaryHover: rgb(103 232 249);
+    --components-color-primaryActive: rgb(6 182 212);
+    --components-color-primarySubtle: rgb(8 51 68);
+    --components-color-primaryMuted: rgb(21 94 117);
+
+    --components-color-success: rgb(74 222 128);
+    --components-color-successSubtle: rgb(5 46 22);
+
+    --components-color-warning: rgb(251 191 36);
+    --components-color-warningSubtle: rgb(69 26 3);
+
+    --components-color-danger: rgb(248 113 113);
+    --components-color-dangerSubtle: rgb(69 10 10);
+
+    --components-color-info: rgb(96 165 250);
+    --components-color-infoSubtle: rgb(23 37 84);
+
+    --components-color-focus: rgb(56 189 248);
   }
 }
 
@@ -85,5 +122,7 @@
 
   --color-focus: var(--components-color-focus);
 
-  --color-brand: var(--components-color-brand);
+  --font-body: var(--components-font-body);
+  --font-heading: var(--components-font-heading);
+  --font-mono: var(--components-font-mono);
 }

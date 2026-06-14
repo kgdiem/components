@@ -40,17 +40,17 @@ export type TabsProps = {
 const TAB_BASE_CLASSES =
   "group inline-flex items-center border-b-2 px-1 py-4 text-sm font-medium";
 
-const TAB_ACTIVE_CLASSES = "border-primary text-primary";
+const TAB_ACTIVE_CLASSES = "border-primary text-text font-semibold";
 
 const TAB_INACTIVE_CLASSES =
-  "border-transparent text-textMuted hover:border-border hover:text-text";
+  "border-transparent text-textSubtle hover:border-border hover:text-text";
 
 const ICON_BASE_CLASSES = "mr-2 -ml-0.5 size-5";
 
-const ICON_ACTIVE_CLASSES = "text-primary";
+const ICON_ACTIVE_CLASSES = "text-text";
 
 const ICON_INACTIVE_CLASSES =
-  "text-textSubtle group-hover:text-textMuted";
+  "text-textSubtle group-hover:text-text";
 
 const MOBILE_SELECT_CLASSES =
   "col-start-1 row-start-1 w-full appearance-none rounded-md bg-surface py-2 pr-8 pl-3 text-base text-text outline-1 -outline-offset-1 outline-border focus:outline-2 focus:-outline-offset-2 focus:outline-focus";

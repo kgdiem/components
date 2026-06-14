@@ -1,4 +1,6 @@
 export { Button } from "./components/Button";
+export { Spinner } from "./components/Spinner";
+export type { SpinnerProps, SpinnerSize } from "./components/Spinner";
 
 export {
   Dialog,
@@ -134,11 +136,18 @@ export type { LabelProps } from "./typography/Label";
 
 export {
   Sidebar,
+  SidebarDrawer,
   SidebarFooter,
   SidebarHeader,
   SidebarItem,
+  SidebarMobileButton,
   SidebarNav,
   SidebarSection,
+} from "./navigation/Sidebar";
+export type {
+  SidebarDrawerProps,
+  SidebarMobileButtonProps,
+  SidebarProps,
 } from "./navigation/Sidebar";
 
 export { Tab, Tabs } from "./navigation/Tabs";
@@ -148,13 +157,20 @@ export { mergeClasses } from "./utils/mergeClasses";
 
 export {
   COMPONENTS_COLOR_TOKENS,
+  COMPONENTS_DARK_COLOR_TOKENS,
+  COMPONENTS_FONT_TOKENS,
   createComponentsPreset,
   componentsColorVar,
   componentsTailwindColor,
+  componentsFontVar,
+  componentsTailwindFont,
+  createComponentsFontTheme,
   componentsTailwindPreset,
 } from "./tokens/colors";
 export type {
   ComponentsColorOverrides,
   ComponentsColorToken,
+  ComponentsFontOverrides,
+  ComponentsFontToken,
   ComponentsPresetOptions,
 } from "./tokens/colors";

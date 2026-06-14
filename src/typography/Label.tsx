@@ -8,7 +8,7 @@ export type LabelProps<T extends LabelElement = "label"> = {
   className?: string;
 } & ComponentPropsWithoutRef<T>;
 
-const BASE_LABEL_CLASSES = "text-sm font-medium text-text";
+const BASE_LABEL_CLASSES = "font-body text-sm font-medium text-text";
 
 export function Label<T extends LabelElement = "label">({
   as,

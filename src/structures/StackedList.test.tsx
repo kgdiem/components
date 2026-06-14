@@ -8,12 +8,11 @@ describe("StackedList", () => {
     const html = renderToStaticMarkup(
       <StackedList>
         <StackedListItem>Row</StackedListItem>
-      </StackedList>,
+      </StackedList>
     );
 
     expect(html).toContain("divide-y");
-    expect(html).toContain("divide-gray-100");
-    expect(html).toContain("dark:divide-white/5");
+    expect(html).toContain("divide-borderSubtle");
   });
 
   it("renders list items with wrapper spacing only", () => {
@@ -22,7 +21,7 @@ describe("StackedList", () => {
         <StackedListItem>
           <div className="flex justify-between">Custom content</div>
         </StackedListItem>
-      </StackedList>,
+      </StackedList>
     );
 
     expect(html).toContain("<li");
@@ -35,7 +34,7 @@ describe("StackedList", () => {
     const html = renderToStaticMarkup(
       <StackedList className="rounded-lg">
         <StackedListItem className="px-4">Row</StackedListItem>
-      </StackedList>,
+      </StackedList>
     );
 
     expect(html).toContain("rounded-lg");

@@ -23,7 +23,10 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
-    "./styles.css": "./dist/styles.css",
+    "./styles.css": "./dist/index.css",
+    "./styles.preflight.css": "./dist/styles.preflight.css",
+    "./source.css": "./src/source.css",
+    "./source.local.css": "./src/source.local.css",
     "./theme.css": "./src/theme.css",
     "./tailwind-config": {
       "import": "./tailwind.preset.js",
@@ -36,14 +39,19 @@
   },
   "files": [
     "dist",
+    "src/source.css",
+    "src/source.local.css",
     "src/theme.css",
     "tailwind.preset.js",
     "tokens"
   ],
   "sideEffects": [
-    "dist/styles.css",
+    "dist/index.css",
+    "dist/styles.preflight.css",
     "dist/styles.js",
-    "dist/styles.cjs"
+    "dist/styles.cjs",
+    "dist/styles-preflight.js",
+    "dist/styles-preflight.cjs"
   ],
   "scripts": {
     "dev": "vite",
@@ -80,6 +88,7 @@
     "@storybook/addon-a11y": "^10.3.6",
     "@storybook/addon-docs": "^10.3.6",
     "@storybook/addon-onboarding": "^10.3.6",
+    "@storybook/addon-themes": "^10.4.4",
     "@storybook/addon-vitest": "^10.3.6",
     "@storybook/react-vite": "^10.3.6",
     "@tailwindcss/vite": "^4.1.16",

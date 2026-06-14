@@ -6,6 +6,8 @@ import {
 } from "@headlessui/react";
 import type { ButtonHTMLAttributes } from "react";
 
+import { ChevronDown } from "lucide-react";
+
 import { mergeClasses } from "@utils/mergeClasses";
 
 type SelectAccessibilityProps = Pick<
@@ -30,7 +32,7 @@ export type SelectProps = SelectAccessibilityProps & {
 };
 
 const BUTTON_CLASSES =
-  "w-full rounded-md border border-border bg-surface px-3 py-2 text-left text-sm text-text shadow-sm transition-colors duration-150 focus:border-focus focus:outline-none focus:ring-2 focus:ring-focus/25 disabled:cursor-not-allowed disabled:opacity-50";
+  "flex w-full items-center justify-between rounded-md border border-border bg-surface px-3 py-2 text-left text-sm text-text shadow-sm transition-colors duration-150 focus:border-focus focus:outline-none focus:ring-2 focus:ring-focus/25 disabled:cursor-not-allowed disabled:opacity-50";
 
 const OPTIONS_CLASSES =
   "mt-1 w-[var(--button-width)] rounded-md border border-border bg-surface p-1 shadow-lg focus:outline-none";
@@ -62,7 +64,8 @@ export function Select({
         className={mergeClasses(BUTTON_CLASSES, className)}
         id={id}
       >
-        {selectedOption?.label ?? placeholder}
+        <span>{selectedOption?.label ?? placeholder}</span>
+        <ChevronDown aria-hidden className="size-4 shrink-0" />
       </ListboxButton>
       <ListboxOptions anchor="bottom start" className={OPTIONS_CLASSES}>
         {options.map((option) => (

@@ -15,8 +15,9 @@ describe("Select", () => {
       <Select options={OPTIONS} value="review" onChange={() => undefined} />,
     );
 
-    expect(html).toContain(">In Review</button>");
+    expect(html).toContain(">In Review</span>");
     expect(html).toContain("border-border");
+    expect(html).toContain("lucide-chevron-down");
   });
 
   it("renders placeholder when no option is selected", () => {
@@ -24,7 +25,7 @@ describe("Select", () => {
       <Select options={OPTIONS} placeholder="Choose status" onChange={() => undefined} />,
     );
 
-    expect(html).toContain(">Choose status</button>");
+    expect(html).toContain(">Choose status</span>");
   });
 
   it("forwards id to the listbox button for label association", () => {
@@ -40,7 +41,7 @@ describe("Select", () => {
       <Select disabled options={OPTIONS} value="draft" onChange={() => undefined} />,
     );
 
-    expect(html).toContain(">Draft</button>");
+    expect(html).toContain(">Draft</span>");
     expect(html).toContain('disabled=""');
   });
 });

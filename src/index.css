@@ -1,3 +1,16 @@
-@import "tailwindcss";
+/*
+ * Ship only theme variables + component utilities.
+ *
+ * `styles.css` is consumed in apps that already compile Tailwind, so importing
+ * the full framework here would duplicate global preflight and place generic
+ * utility selectors (e.g. `.flex`, `.hidden`) in Tailwind's `utilities` layer.
+ * That can override consumer responsive classes when this stylesheet is loaded
+ * after app CSS.
+ *
+ * We import only Tailwind's theme primitives and remap generated utilities into
+ * the lower-priority `components` layer so consumer `utilities` stay dominant.
+ */
+@import "tailwindcss/theme";
+@import "tailwindcss/utilities" layer(components);
 @import "./theme.css";
 @config "../tailwind.config.js";
