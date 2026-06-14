@@ -1,4 +1,5 @@
 import type { ButtonHTMLAttributes, ReactNode } from "react";
+import { Spinner } from "./Spinner";
 import { mergeClasses } from "../utils/mergeClasses";
 
 type ButtonVariant = "primary" | "secondary" | "tertiary";
@@ -27,40 +28,6 @@ const SIZE_CLASSES: Record<ButtonSize, string> = {
   md: "h-9 gap-1.5 rounded-md px-4 py-2 text-sm",
   lg: "h-12 gap-2 rounded-lg px-6 py-3 text-base",
 };
-
-const SPINNER_SIZE: Record<ButtonSize, number> = {
-  sm: 14,
-  md: 16,
-  lg: 20,
-};
-
-function Spinner({ size }: { size: number }) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      className="shrink-0 animate-spin"
-      aria-hidden="true"
-    >
-      <circle
-        cx="12"
-        cy="12"
-        r="10"
-        stroke="currentColor"
-        strokeWidth="2.5"
-        opacity="0.25"
-      />
-      <path
-        d="M22 12a10 10 0 0 0-10-10"
-        stroke="currentColor"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
 
 export function Button({
   children,
@@ -91,7 +58,7 @@ export function Button({
       aria-busy={loading}
       {...props}
     >
-      {loading ? <Spinner size={SPINNER_SIZE[size]} /> : null}
+      {loading ? <Spinner size={size} /> : null}
       {children}
     </button>
   );

@@ -20,7 +20,7 @@ import { Button } from "@kgdiem/components";
 
 - `variant` controls visual emphasis: `primary`, `secondary`, or `tertiary`.
 - `size` controls the control's footprint: `sm`, `md` (default), or `lg`.
-- `loading` shows an inline spinner and disables interaction while an action is in flight.
+- `loading` shows an inline [Spinner](./Spinner.md) and disables interaction while an action is in flight.
 - `disabled` prevents interaction and removes the control from the action flow.
 - `children` provides the button label or custom inline content.
 
@@ -37,6 +37,7 @@ import { Button } from "@kgdiem/components";
 
 ## Related components
 
+- [Spinner](./Spinner.md)
 - [Dialog](./Dialog.md)
 - [Notification](./Notification.md)
 - [Input](../controls/Input.md)
