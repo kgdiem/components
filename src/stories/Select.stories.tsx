@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
 
 import componentDocs from "../controls/Select.md?raw";
-import "../index.css";
 import { Select } from "../controls/Select";
 import { withComponentDocs } from "./storyDocs";
 

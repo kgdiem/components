@@ -1,5 +1,3 @@
-import "../index.css";
-
 import { COMPONENTS_COLOR_TOKENS, componentsColorVar } from "../tokens/colors";
 
 type ColorSwatch = {

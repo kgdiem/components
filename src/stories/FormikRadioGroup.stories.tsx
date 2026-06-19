@@ -3,7 +3,6 @@ import { Form, Formik } from "formik";
 
 import componentDocs from "../controls/FormikRadioGroup.md?raw";
 import { FormikRadioGroup } from "../controls/FormikRadioGroup";
-import "../index.css";
 import { withComponentDocs } from "./storyDocs";
 
 const options = [

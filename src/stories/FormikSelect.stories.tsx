@@ -3,7 +3,6 @@ import { Form, Formik } from "formik";
 
 import componentDocs from "../controls/FormikSelect.md?raw";
 import { FormikSelect } from "../controls/FormikSelect";
-import "../index.css";
 import { withComponentDocs } from "./storyDocs";
 
 const options = [

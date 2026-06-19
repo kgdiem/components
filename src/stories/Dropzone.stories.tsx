@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
 
 import componentDocs from "../controls/Dropzone.md?raw";
-import "../index.css";
 import type { FileControlValue } from "../controls/fileControlUtils";
 import { Dropzone } from "../controls/Dropzone";
 import { withComponentDocs } from "./storyDocs";

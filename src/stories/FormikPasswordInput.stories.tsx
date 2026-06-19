@@ -3,7 +3,6 @@ import { Form, Formik } from "formik";
 
 import componentDocs from "../controls/FormikPasswordInput.md?raw";
 import { FormikPasswordInput } from "../controls/FormikPasswordInput";
-import "../index.css";
 import { withComponentDocs } from "./storyDocs";
 
 const meta = {

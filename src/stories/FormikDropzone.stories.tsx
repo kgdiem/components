@@ -3,7 +3,6 @@ import { Form, Formik } from "formik";
 
 import componentDocs from "../controls/FormikDropzone.md?raw";
 import { FormikDropzone } from "../controls/FormikDropzone";
-import "../index.css";
 import { withComponentDocs } from "./storyDocs";
 
 const meta = {

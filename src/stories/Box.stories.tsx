@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import componentDocs from "../structures/Box.md?raw";
-import "../index.css";
 import { Box } from "../structures/Box";
 import { Text } from "../typography/Text";
 import { withComponentDocs } from "./storyDocs";

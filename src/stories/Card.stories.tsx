@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import componentDocs from "../structures/Card.md?raw";
-import "../index.css";
 import { Card } from "../structures/Card";
 import { Header } from "../typography/Header";
 import { Text } from "../typography/Text";
