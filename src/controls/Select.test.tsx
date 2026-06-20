@@ -20,6 +20,39 @@ describe("Select", () => {
     expect(html).toContain("lucide-chevron-down");
   });
 
+  it("applies the updated comfortable padding and focus ring on the trigger", () => {
+    const html = renderToStaticMarkup(
+      <Select options={OPTIONS} value="review" onChange={() => undefined} />,
+    );
+
+    expect(html).toContain("px-4");
+    expect(html).toContain("py-3");
+    expect(html).toContain("focus:ring-[3px]");
+    expect(html).toContain("disabled:bg-surfaceMuted");
+  });
+
+  it("does not apply a resting drop shadow on the trigger", () => {
+    const html = renderToStaticMarkup(
+      <Select options={OPTIONS} value="review" onChange={() => undefined} />,
+    );
+
+    expect(html).not.toContain("shadow-sm");
+  });
+
+  it("renders a prefix node before the selected label", () => {
+    const html = renderToStaticMarkup(
+      <Select
+        prefix={<span>ICON</span>}
+        options={OPTIONS}
+        value="review"
+        onChange={() => undefined}
+      />,
+    );
+
+    expect(html).toContain("ICON");
+    expect(html.indexOf("ICON")).toBeLessThan(html.indexOf("In Review"));
+  });
+
   it("renders placeholder when no option is selected", () => {
     const html = renderToStaticMarkup(
       <Select options={OPTIONS} placeholder="Choose status" onChange={() => undefined} />,

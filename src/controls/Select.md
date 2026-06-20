@@ -21,6 +21,7 @@ import { Select } from "@kgdiem/components";
 - `options` supplies the available choices.
 - `value` and `onChange` support controlled usage.
 - `placeholder` shows an empty prompt when no value is selected.
+- `prefix` renders leading content (such as a status icon) inside the trigger.
 - Disabled options stay visible but unavailable.
 
 ## Common patterns

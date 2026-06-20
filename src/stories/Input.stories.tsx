@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import { Search } from "lucide-react";
 import { useState } from "react";
 
 import componentDocs from "../controls/Input.md?raw";
@@ -52,5 +53,23 @@ export const Clearable: Story = {
   args: {
     placeholder: "Search by name or description",
     type: "search",
+  },
+};
+
+export const WithPrefixIcon: Story = {
+  args: {
+    type: "search",
+    placeholder: "Search assessments…",
+    prefix: <Search aria-hidden className="size-[18px]" />,
+  },
+};
+
+export const WithPrefixAndPostfix: Story = {
+  args: {
+    type: "text",
+    inputMode: "decimal",
+    placeholder: "0.00",
+    prefix: <span>$</span>,
+    postfix: <span className="text-[13px]">USD</span>,
   },
 };

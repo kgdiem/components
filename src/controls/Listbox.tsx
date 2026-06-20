@@ -30,10 +30,10 @@ export type ListboxProps = ListboxAccessibilityProps & {
 };
 
 const BUTTON_CLASSES =
-  "w-full rounded-md border border-border bg-surface px-3 py-2 text-left text-sm text-text shadow-sm transition-colors duration-150 focus:border-focus focus:outline-none focus:ring-2 focus:ring-focus/25 disabled:cursor-not-allowed disabled:opacity-50";
+  "w-full rounded-md border border-border bg-surface px-4 py-3 text-left text-sm text-text transition-colors duration-150 focus:border-focus focus:outline-none focus:ring-[3px] focus:ring-focus/25 disabled:cursor-not-allowed disabled:bg-surfaceMuted disabled:opacity-50";
 
 const OPTIONS_CLASSES =
-  "mt-1 w-[var(--button-width)] rounded-md border border-border bg-surface p-1 shadow-lg focus:outline-none";
+  "mt-1 w-[var(--button-width)] rounded-md border border-border bg-surfaceRaised p-1 shadow-lg focus:outline-none";
 
 const OPTION_CLASSES =
   "cursor-pointer rounded-sm px-2 py-1.5 text-sm text-text transition-colors duration-100 data-[focus]:bg-surfaceMuted data-[selected]:bg-primarySubtle data-[selected]:text-primary data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50";

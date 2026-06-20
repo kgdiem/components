@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import { CircleCheck } from "lucide-react";
 import { useState } from "react";
 
 import componentDocs from "../controls/Select.md?raw";
@@ -45,5 +46,15 @@ export const Disabled: Story = {
   args: {
     disabled: true,
     value: "approved",
+  },
+};
+
+export const WithPrefixIcon: Story = {
+  render: (args) => {
+    const [value, setValue] = useState<string | undefined>("review");
+    return <Select {...args} value={value} onChange={setValue} />;
+  },
+  args: {
+    prefix: <CircleCheck aria-hidden className="size-[18px]" />,
   },
 };

@@ -21,6 +21,7 @@ import { Input } from "@kgdiem/components";
 - `type` controls the browser input mode, such as `text`, `email`, or `search`.
 - `value` and `onChange` support controlled usage.
 - `clearable` adds a clear action for eligible input types.
+- `prefix` and `postfix` render leading/trailing content (icons, units, or short text addons) inside the field.
 - Standard input attributes pass through to the underlying field.
 
 ## Common patterns
