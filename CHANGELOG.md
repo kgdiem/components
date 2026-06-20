@@ -1,5 +1,11 @@
 # @kgdiem/components
 
+## 1.0.1
+
+### Patch Changes
+
+- 3d71b00: Fix tailwind import in built storybook
+
 ## 1.0.0
 
 ### Major Changes
