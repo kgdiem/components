@@ -4,7 +4,7 @@ import {
   ListboxOption,
   ListboxOptions,
 } from "@headlessui/react";
-import type { ButtonHTMLAttributes } from "react";
+import type { ButtonHTMLAttributes, ReactNode } from "react";
 
 import { ChevronDown } from "lucide-react";
 
@@ -28,14 +28,17 @@ export type SelectProps = SelectAccessibilityProps & {
   onChange?: (value: string) => void;
   options: SelectOption[];
   placeholder?: string;
+  prefix?: ReactNode;
   value?: string;
 };
 
 const BUTTON_CLASSES =
-  "flex w-full items-center justify-between rounded-md border border-border bg-surface px-3 py-2 text-left text-sm text-text shadow-sm transition-colors duration-150 focus:border-focus focus:outline-none focus:ring-2 focus:ring-focus/25 disabled:cursor-not-allowed disabled:opacity-50";
+  "flex w-full items-center gap-2.5 rounded-md border border-border bg-surface px-4 py-3 text-left text-sm text-text transition-colors duration-150 focus:border-focus focus:outline-none focus:ring-[3px] focus:ring-focus/25 disabled:cursor-not-allowed disabled:bg-surfaceMuted disabled:opacity-50";
+
+const PREFIX_CLASSES = "flex shrink-0 items-center text-textSubtle";
 
 const OPTIONS_CLASSES =
-  "mt-1 w-[var(--button-width)] rounded-md border border-border bg-surface p-1 shadow-lg focus:outline-none";
+  "mt-1 w-[var(--button-width)] rounded-md border border-border bg-surfaceRaised p-1 shadow-lg focus:outline-none";
 
 const OPTION_CLASSES =
   "cursor-pointer rounded-sm px-2 py-1.5 text-sm text-text transition-colors duration-100 data-[focus]:bg-surfaceMuted data-[selected]:bg-primarySubtle data-[selected]:text-primary data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50";
@@ -51,6 +54,7 @@ export function Select({
   onChange,
   options,
   placeholder = "Select an option",
+  prefix,
   value,
 }: SelectProps) {
   const selectedOption = options.find((option) => option.value === value);
@@ -64,7 +68,10 @@ export function Select({
         className={mergeClasses(BUTTON_CLASSES, className)}
         id={id}
       >
-        <span>{selectedOption?.label ?? placeholder}</span>
+        {prefix != null ? <span className={PREFIX_CLASSES}>{prefix}</span> : null}
+        <span className="min-w-0 flex-1 truncate">
+          {selectedOption?.label ?? placeholder}
+        </span>
         <ChevronDown aria-hidden className="size-4 shrink-0" />
       </ListboxButton>
       <ListboxOptions anchor="bottom start" className={OPTIONS_CLASSES}>

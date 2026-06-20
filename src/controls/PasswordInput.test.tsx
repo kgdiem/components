@@ -12,7 +12,18 @@ describe("PasswordInput", () => {
     expect(html).toContain('type="password"');
     expect(html).toContain('name="password"');
     expect(html).toContain('aria-label="Show password"');
-    expect(html).toContain("pr-9");
+  });
+
+  it("renders the visibility toggle inside the field as a postfix", () => {
+    const html = renderToStaticMarkup(
+      <PasswordInput name="password" placeholder="Enter password" />,
+    );
+
+    expect(html).toContain("focus-within:ring-[3px]");
+    expect(html).toContain('aria-label="Show password"');
+    expect(html).not.toContain("pr-9");
+    expect(html.split("<input").length - 1).toBe(1);
+    expect(html.indexOf("<input")).toBeLessThan(html.indexOf("<button"));
   });
 
   it("merges custom className and html attributes", () => {

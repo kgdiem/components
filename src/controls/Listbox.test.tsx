@@ -43,4 +43,16 @@ describe("Listbox", () => {
     expect(html).toContain(">Draft</button>");
     expect(html).toContain("focus:ring-focus/25");
   });
+
+  it("matches the refreshed trigger styling", () => {
+    const html = renderToStaticMarkup(
+      <Listbox options={OPTIONS} value="draft" onChange={() => undefined} />,
+    );
+
+    expect(html).toContain("px-4");
+    expect(html).toContain("py-3");
+    expect(html).toContain("focus:ring-[3px]");
+    expect(html).toContain("disabled:bg-surfaceMuted");
+    expect(html).not.toContain("shadow-sm");
+  });
 });

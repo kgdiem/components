@@ -26,4 +26,14 @@ describe("Textarea", () => {
     expect(html).toContain('name="notes"');
     expect(html).toContain(">Details</textarea>");
   });
+
+  it("matches the refreshed field styling", () => {
+    const html = renderToStaticMarkup(<Textarea placeholder="Write a note" />);
+
+    expect(html).toContain("px-4");
+    expect(html).toContain("py-3");
+    expect(html).toContain("focus:ring-[3px]");
+    expect(html).toContain("disabled:bg-surfaceMuted");
+    expect(html).not.toContain("shadow-sm");
+  });
 });
