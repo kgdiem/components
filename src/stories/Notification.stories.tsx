@@ -3,7 +3,6 @@ import { AlertTriangle, Check, Inbox } from "lucide-react";
 import { useState, type ReactNode } from "react";
 
 import componentDocs from "../components/Notification.md?raw";
-import "../index.css";
 import { Button } from "../components/Button";
 import { Box } from "../structures/Box";
 import { withComponentDocs } from "./storyDocs";

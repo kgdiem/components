@@ -3,7 +3,6 @@ import { Calendar, ChartPie, Files, Folder, Home, Users } from "lucide-react";
 import { useState, type ReactNode } from "react";
 
 import componentDocs from "../navigation/Sidebar.md?raw";
-import "../index.css";
 import { Button } from "../components/Button";
 import { Box } from "../structures/Box";
 import { Text } from "../typography/Text";

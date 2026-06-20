@@ -1,0 +1,16 @@
+/*
+ * Storybook showcase styles.
+ *
+ * The published package intentionally ships lean CSS: `index.css` (styles.css)
+ * carries only theme variables and component-layer utilities — no Tailwind
+ * preflight — so consuming apps keep control of their own global resets.
+ *
+ * The Storybook showcase is itself a host app, so it compiles the FULL Tailwind
+ * framework here: preflight (resets) plus utilities in Tailwind's canonical
+ * `theme, base, components, utilities` layer order. This renders components the
+ * way a fully-styled consumer app would, instead of inheriting the deliberately
+ * stripped-down published stylesheet.
+ */
+@import "tailwindcss";
+@import "../src/theme.css";
+@config "../tailwind.config.js";

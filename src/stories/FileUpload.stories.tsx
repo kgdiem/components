@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
 
 import componentDocs from "../controls/FileUpload.md?raw";
-import "../index.css";
 import type { FileControlValue } from "../controls/fileControlUtils";
 import { FileUpload } from "../controls/FileUpload";
 import { withComponentDocs } from "./storyDocs";

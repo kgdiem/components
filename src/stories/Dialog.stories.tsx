@@ -11,7 +11,6 @@ import {
 } from "react";
 
 import componentDocs from "../components/Dialog.md?raw";
-import "../index.css";
 import { Button } from "../components/Button";
 import { Box } from "../structures/Box";
 import { withComponentDocs } from "./storyDocs";

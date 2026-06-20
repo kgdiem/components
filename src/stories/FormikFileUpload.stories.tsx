@@ -3,7 +3,6 @@ import { Form, Formik } from "formik";
 
 import componentDocs from "../controls/FormikFileUpload.md?raw";
 import { FormikFileUpload } from "../controls/FormikFileUpload";
-import "../index.css";
 import { withComponentDocs } from "./storyDocs";
 
 const meta = {

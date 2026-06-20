@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import componentDocs from "../structures/StackedList.md?raw";
-import "../index.css";
 import { StackedList, StackedListItem } from "../structures/StackedList";
 import { Text } from "../typography/Text";
 import { withComponentDocs } from "./storyDocs";

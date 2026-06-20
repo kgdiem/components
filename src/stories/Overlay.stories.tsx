@@ -3,7 +3,6 @@ import { Loader2 } from "lucide-react";
 import { useState, type ReactNode } from "react";
 
 import componentDocs from "../components/Overlay.md?raw";
-import "../index.css";
 import { Button } from "../components/Button";
 import { Overlay } from "../components/Overlay";
 import { Text } from "../typography/Text";

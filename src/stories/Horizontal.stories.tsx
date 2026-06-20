@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import componentDocs from "../structures/Horizontal.md?raw";
-import "../index.css";
 import { Horizontal } from "../structures/Horizontal";
 import { Text } from "../typography/Text";
 import { withComponentDocs } from "./storyDocs";

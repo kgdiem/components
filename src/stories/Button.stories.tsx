@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import componentDocs from "../components/Button.md?raw";
-import "../index.css";
 import { Button } from "../components/Button";
 import { withComponentDocs } from "./storyDocs";
 

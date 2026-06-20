@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import componentDocs from "../components/Spinner.md?raw";
-import "../index.css";
 import { Spinner } from "../components/Spinner";
 import { Text } from "../typography/Text";
 import { withComponentDocs } from "./storyDocs";

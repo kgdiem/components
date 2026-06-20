@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
 
 import componentDocs from "../typography/Label.md?raw";
-import "../index.css";
 import { Combobox } from "../controls/Combobox";
 import { Input } from "../controls/Input";
 import { RadioGroup } from "../controls/RadioGroup";

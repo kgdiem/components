@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
 
 import componentDocs from "../controls/Listbox.md?raw";
-import "../index.css";
 import { Listbox } from "../controls/Listbox";
 import { withComponentDocs } from "./storyDocs";
 
