@@ -1,5 +1,11 @@
 # @kgdiem/components
 
+## 1.1.1
+
+### Patch Changes
+
+- c1656b8: Add tests for SSR
+
 ## 1.1.0
 
 ### Minor Changes
