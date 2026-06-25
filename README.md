@@ -12,6 +12,18 @@ Browse the hosted component library at [components.kevindiem.com](https://compon
 
 For GitHub-first navigation, each Storybook-backed component also has a co-located Markdown doc in the repo. Start with [COMPONENTS.md](./COMPONENTS.md).
 
+## SSR readiness
+
+SSR safety is verified with a Storybook harness test at `src/stories/ssrHarness.test.tsx`.
+The harness composes every story and renders it with `react-dom/server`, which catches
+component code that depends on browser-only APIs during server render.
+
+Run it with:
+
+```bash
+npm run test:ssr
+```
+
 ## Installation
 
 ```bash

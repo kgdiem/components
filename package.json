@@ -61,6 +61,7 @@
     "lint": "eslint .",
     "pretest": "npm run build:js",
     "test": "vitest run",
+    "test:ssr": "vitest run src/stories/ssrHarness.test.tsx src/components/ssrPrimitives.test.tsx",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
