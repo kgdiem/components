@@ -1,5 +1,11 @@
 # @kgdiem/components
 
+## 1.2.0
+
+### Minor Changes
+
+- 9180853: Add avatar component
+
 ## 1.1.1
 
 ### Patch Changes
